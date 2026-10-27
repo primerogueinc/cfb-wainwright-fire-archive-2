@@ -16,6 +16,8 @@ Part 2 covers **Rubicon Ridge**, working model v5. It started on Oct. 26, 2026. 
 | `data/rubicon-ridge/derived/goes_visible/` | GOES-18/19 visible imagery, 2:30–5:30 p.m. MDT. **No identifiable smoke plume** (frontal cloud). 3.9 µm heat signal 3:20–3:50 p.m. |
 | `data/rubicon-ridge/derived/polar_visible/` | Every VIIRS and MODIS pass, 1–6 p.m. MDT, with geometry and cloud. No polar pass imaged the intense phase. The leads are Aqua MODIS at 3:18 p.m. and NOAA-20 at 2:50 p.m. The imagery itself has not been pulled yet. |
 | `data/rubicon-ridge/model_v5/` | Working model v5: 2,160-run ensemble, scar-fit weights, arrival times at Range 2, Range 15 and the road head, and the v4-vs-v5 comparison. `scar_satellogic/` refits it to the 70 cm burn outline. **Working results, not yet published.** See `ABOUT.md`. |
+| `data/rubicon-ridge/raw/adsb_night_low/` | Supplied ADS-B positions near the base, 3:31 p.m. Oct. 17 to 3:58 a.m. Oct. 18, unaltered, with checksum. A filtered subset of the adsb.lol archive. See its `README.md`. |
+| `data/rubicon-ridge/model_v5_1_rubicon_cloud/` | Working model v5.1 "Rubicon Cloud": the air-response timeline from ADS-B and how it links to v5. No aircraft at or below 12,000 ft was heard within 80 km of the fire from 3:34 to 5:20 p.m. The first inbound air-ambulance launches were at about 4:55 (estimated) and 4:58 p.m. (STARS, heard). This is an upper bound only, so v5's arrival windows are unchanged. **Working results, not yet published.** See `ABOUT.md`. |
 | `data/rubicon-ridge/satellogic_2026-10-20/` | Prime Rogue's measurements from a Satellogic 70 cm image taken Oct. 20, 2026, 12:56 p.m. MDT. Includes the burn outline, unburned islands, edge runs along tracks, ground classes, objects near the ranges, distances from Range 2, Range 15 and the road head to the burn edge, and the image footprint. **Vectors and tables only. No imagery** (see Licences). See `ABOUT.md`. |
 | `data/terrain3d/VERSIONS.md` | Which 3D reconstruction video goes with which working model: the v4 videos in part 1 (frozen) and what a Rubicon Ridge (v5) version changes. |
 | `scripts/rubicon_ridge/` | The code behind all of the above. |
@@ -36,6 +38,13 @@ cd cfb-wainwright-fire-archive-2/scripts/rubicon_ridge/model_v5
 python3 v5_fit.py --scar ../../../data/rubicon-ridge/satellogic_2026-10-20/outline_for_model_v5.geojson --scar-mode union --tag satellogic
 ```
 
+To rebuild model v5.1 (aircraft timeline; also reads part 1's adsb.lol trace files):
+
+```
+cd cfb-wainwright-fire-archive-2/scripts/rubicon_ridge/model_v5_1
+python3 v51_air.py && python3 v51_figures.py --gif
+```
+
 Scripts that pull from services needing a key read it from an environment variable or a local file outside the repository. Never commit keys.
 
 ## Times
@@ -54,6 +63,7 @@ Alberta was on Mountain Daylight Time (UTC−6) on Oct. 17, 2026. Satellite data
 | Environment Canada data (stations, HRDPS, radar) | Open Government Licence – Canada. Credit: "Environment and Climate Change Canada". |
 | Alberta ACIS and air-quality data | Open Government Licence – Alberta. Credit: "Alberta Agriculture and Irrigation (ACIS)" / "Alberta Environment and Protected Areas". |
 | PurpleAir sensor data | PurpleAir's terms of service. Credit: "PurpleAir". |
+| ADS-B aircraft positions (adsb.lol open archive), including the tables derived from them in `model_v5_1_rubicon_cloud/` | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/). Credit: "© adsb.lol contributors". |
 | OpenStreetMap features used for reference | ODbL. Credit: "© OpenStreetMap contributors". |
 
 **Commercial imagery is never stored here.** Prime Rogue licensed the Satellogic image of Oct. 20, 2026 through SkyFi, and the licence forbids redistribution. Only Prime Rogue's own measurements derived from it appear here, as vectors and tables with no image data. The same applies to any Planet, Vantor/Maxar or Airbus imagery.

@@ -1,0 +1,79 @@
+{
+ "file": "data/rubicon-ridge/raw/adsb_night_low/wainwright_fire_night_low_near_base_all_positions.csv",
+ "sha256": "2fb3f95bfc246a45a67d3d2fae56924c4445fe14690e6ec3e47a7e3685c42602",
+ "bytes": 209909,
+ "rows": 1671,
+ "aircraft": 11,
+ "types": [
+  "B350",
+  "BE20",
+  "BK17",
+  "C510",
+  "EC45"
+ ],
+ "columns": [
+  "utc",
+  "mdt",
+  "hex",
+  "registration",
+  "type",
+  "description",
+  "military",
+  "lat",
+  "lon",
+  "alt_ft",
+  "on_ground",
+  "km_from_base"
+ ],
+ "mdt_column_is_utc_minus_6h": true,
+ "first_mdt": "2026-10-17 15:31:28",
+ "last_mdt": "2026-10-18 03:57:58",
+ "alt_ft_range": [
+  4250,
+  12000
+ ],
+ "km_from_base_range": [
+  2.9,
+  40.0
+ ],
+ "military_flag_values": [
+  "False"
+ ],
+ "on_ground_values": [
+  "False"
+ ],
+ "match_to_adsblol_traces": {
+  "archive": "part 1 data/adsb/oct17/raw_traces/ (adsb.lol globe_history_2026 releases v2026.10.17 and v2026.10.18, readsb prod)",
+  "rows_matched_within_1s_same_icao": 1671,
+  "distinct_archive_points_matched": 1666,
+  "duplicate_hex_utc_rows_in_file": 80,
+  "max_position_difference_deg": 0.00064,
+  "baro_altitude_identical_share": 0.9988,
+  "note": "Times in the file are the archive's fractional-second times rounded to whole seconds; where two archive points round to the same second the nearest one is used, which explains the small position differences."
+ },
+ "km_from_base": {
+  "base_point_fitted_latlon": [
+   52.8,
+   -110.9
+  ],
+  "base_point_reading": "52.80 N, 110.90 W: a round-number point 4.0 km north of the v5 fire centre and 2.8 km west of Wainwright Airport (CYWV); not the CFB Wainwright airfield / CZWN (13.6 km away)",
+  "max_abs_residual_km_vs_52.80_-110.90": 0.05
+ },
+ "reconstructed_selection": {
+  "rule": "positions within 40 km of 52.80 N 110.90 W, numeric barometric altitude <= 12,000 ft (excludes 'ground'), between a start time in [prev qualifying point, first row] and an end time in [last row, next qualifying point]",
+  "archive_points_meeting_rule_in_window": 1666,
+  "of_which_in_file": 1666,
+  "file_rows_outside_rule": 0,
+  "start_bracket_mdt": [
+   "2026-10-17 11:20:36",
+   "2026-10-17 15:31:28"
+  ],
+  "end_bracket_mdt": [
+   "2026-10-18 03:57:58",
+   "2026-10-18 11:49:36"
+  ],
+  "reading": "Every qualifying archive point between the first and last row is in the file, so the file is this filter applied to the adsb.lol archive. The start cut lies somewhere between the previous qualifying point (11:20:36 MDT) and the first row (15:31:28 MDT), consistent with a cut at about 15:30 MDT; the end cut lies between 03:57:58 and 11:49:36 MDT Oct. 18. Nothing below 4,250 ft appears because no position below that was received near the base, not because of a floor in the filter."
+ },
+ "part1_already_has_these_positions": true,
+ "provenance_statement": "Supplied by Prime Rogue; every row matches the adsb.lol open archive (ODbL 1.0) trace files already archived in part 1 (data/adsb/oct17/raw_traces/). Data: (c) adsb.lol contributors, ODbL 1.0."
+}

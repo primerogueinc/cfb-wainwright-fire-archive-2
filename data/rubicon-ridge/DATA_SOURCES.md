@@ -38,6 +38,15 @@ Status, Oct. 26, 2026: planning. Rubicon Ridge keeps every v4 input and adds the
 | Wind at the fire's location | NOAA RAP reanalysis; ECCC HRDPS | Model wind at the fire, as a check on the front's arrival |
 | Every satellite pass | NASA FIRMS, all sensors (NOAA-21, S-NPP, Terra, Aqua, VIIRS 750 m) | Confirm no pass was missed on Oct. 17 |
 
+## Added for model v5.1 "Rubicon Cloud" (Oct. 27, 2026)
+
+| Input | Source | Archived copy | Use |
+|---|---|---|---|
+| **Aircraft positions near the base, 15:31 Oct. 17 to 03:58 Oct. 18** | Supplied by Prime Rogue: 1,671 ADS-B positions within 40 km of 52.80 N 110.90 W, at or below 12,000 ft, for 11 aircraft. Every row matches the adsb.lol open archive (ODbL 1.0). | `raw/adsb_night_low/` (unaltered, with `SHA256SUMS` and `README.md`) | The air-response timeline and an upper bound on the incident time (`model_v5_1_rubicon_cloud/`) |
+| Whole flights of the same aircraft | adsb.lol open archive (`globe_history_2026`), original trace files already in part 1 | part 1 `data/adsb/oct17/raw_traces/`; extract in `model_v5_1_rubicon_cloud/context_tracks.csv` | Origins, destinations, take-off and landing times outside the supplied 40 km window |
+| Operator of each call-sign prefix (STAR, CWA, SLG) | Nav Canada list of Canadian ICAO designators; public airline lists | cited in `model_v5_1_rubicon_cloud/ABOUT.md` | Operator inference only, labelled as such |
+| Casualty-transport account | DND briefing, Oct. 22, 2026: "cared for first in Wainwright, then flown to hospital ... by STARS, Alberta Health Services paramedics, and Royal Canadian Air Force helicopters" | part 1 `data/reference/dnd_briefing_2026-10-22_transcript.txt` | The event chain behind the timing bound |
+
 ## Records requested from DND (ATIP / request for comment)
 
 Daily Range Standing Orders for Oct. 16-17; the Fire Chief's report under CFAO 30-2; fire hazard condition settings Aug.-Oct. 2026; CFRIS bookings and danger area overlays for Ranges 2, 11 and 15; the spring 2026 burn plan; the PDA 2 grazing schedule; whichever Range Standing Orders edition was in force on Oct. 17.

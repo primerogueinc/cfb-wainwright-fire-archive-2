@@ -1,0 +1,326 @@
+{
+ "air_timing_check": {
+  "first_inbound_public_air_ambulance": {
+   "flight": "3",
+   "reg": "C-FLCI",
+   "type": "EC45",
+   "callsigns": "STAR03",
+   "pieces": "1",
+   "first_heard_mdt": "2026-10-17 16:58:15.069999933",
+   "last_heard_mdt": "2026-10-17 17:32:20.400000095",
+   "origin_kind": "take-off (heard)",
+   "origin": "CYEG Edmonton Intl",
+   "origin_km": 1.6,
+   "departure_mdt": "2026-10-17 16:58:15.069999933",
+   "first_alt_ft": 2850.0,
+   "first_gs_kt": NaN,
+   "destination_kind": "descending, lost below coverage (landing estimated)",
+   "destination": "CYWV Wainwright Airport",
+   "destination_km": 13.8,
+   "arrival_mdt": "2026-10-17 17:37:04.800000095",
+   "last_alt_ft": 4600.0,
+   "last_gs_kt": 167.3,
+   "last_lat": 52.8436,
+   "last_lon": -111.0482,
+   "last_track": 112.1,
+   "mean_gs_kt": 164.0,
+   "min_km_fire": 13.0,
+   "min_km_fire_mdt": "2026-10-17 17:32:20.400000095",
+   "min_km_fire_alt_ft": 4600.0,
+   "operator_inferred_from_callsign": "STARS (Shock Trauma Air Rescue Service), air ambulance helicopters",
+   "departure_or_first_heard_mdt": "2026-10-17 16:58:15.069999933",
+   "departure_basis": "heard from take-off",
+   "origin_label": "CYEG Edmonton Intl",
+   "transit_min": 38.8
+  },
+  "earliest_inbound_any_operator": {
+   "flight": "16",
+   "reg": "C-FSUG",
+   "type": "BE20",
+   "callsigns": "CFSUG",
+   "pieces": "1",
+   "first_heard_mdt": "2026-10-17 17:00:40.380000114",
+   "last_heard_mdt": "2026-10-17 17:29:38.599999905",
+   "origin_kind": "climbing out (take-off estimated)",
+   "origin": "CYLB Lac La Biche",
+   "origin_km": 23.3,
+   "departure_mdt": "2026-10-17 16:54:56.443506604",
+   "first_alt_ft": 11350.0,
+   "first_gs_kt": 196.9,
+   "destination_kind": "lost low near place (landing estimated)",
+   "destination": "CYWV Wainwright Airport",
+   "destination_km": 18.8,
+   "arrival_mdt": "2026-10-17 17:35:25.314285619",
+   "last_alt_ft": 6275.0,
+   "last_gs_kt": 265.2,
+   "last_lat": 52.8297,
+   "last_lon": -110.5845,
+   "last_track": 169.8,
+   "mean_gs_kt": 250.0,
+   "min_km_fire": 22.7,
+   "min_km_fire_mdt": "2026-10-17 17:29:38.599999905",
+   "min_km_fire_alt_ft": 6275.0,
+   "operator_inferred_from_callsign": "",
+   "departure_or_first_heard_mdt": "2026-10-17 16:54:56.443506604",
+   "departure_basis": "estimated from climb-out (departure field below coverage)",
+   "origin_label": "CYLB Lac La Biche",
+   "transit_min": 40.5
+  },
+  "logic": [
+   "Incident (fire overtakes the position) -> casualties treated and moved by ground ('cared for first in Wainwright', DND Oct. 22) -> request for air transport -> crew launches -> transit -> landing in the Wainwright area.",
+   "Only the launch and transit are seen. Every earlier step takes zero or more minutes, so the first inbound launch is an UPPER bound on the incident time: incident <= launch - (minimum lag).",
+   "There is no public basis for the length of the ground phase, so the likelihood over incident times is flat below the bound. The air data therefore cannot favour any time inside the v5 window over another, or v5 over DND's 'just before 4:00'."
+  ],
+  "bounds_and_v5_weight_retained": {
+   "public_operator_first_launch_minlag0": {
+    "launch_mdt": "16:58",
+    "min_lag_min": 0,
+    "bound_mdt": "16:58",
+    "v5_weight_retained_default": 1.0,
+    "v5_weight_retained_satellogic": 1.0
+   },
+   "public_operator_first_launch_minlag10": {
+    "launch_mdt": "16:58",
+    "min_lag_min": 10,
+    "bound_mdt": "16:48",
+    "v5_weight_retained_default": 1.0,
+    "v5_weight_retained_satellogic": 1.0
+   },
+   "public_operator_first_launch_minlag20": {
+    "launch_mdt": "16:58",
+    "min_lag_min": 20,
+    "bound_mdt": "16:38",
+    "v5_weight_retained_default": 1.0,
+    "v5_weight_retained_satellogic": 1.0
+   },
+   "public_operator_first_launch_minlag30": {
+    "launch_mdt": "16:58",
+    "min_lag_min": 30,
+    "bound_mdt": "16:28",
+    "v5_weight_retained_default": 1.0,
+    "v5_weight_retained_satellogic": 1.0
+   },
+   "any_operator_first_launch_minlag0": {
+    "launch_mdt": "16:55",
+    "min_lag_min": 0,
+    "bound_mdt": "16:55",
+    "v5_weight_retained_default": 1.0,
+    "v5_weight_retained_satellogic": 1.0
+   },
+   "any_operator_first_launch_minlag10": {
+    "launch_mdt": "16:55",
+    "min_lag_min": 10,
+    "bound_mdt": "16:45",
+    "v5_weight_retained_default": 1.0,
+    "v5_weight_retained_satellogic": 1.0
+   },
+   "any_operator_first_launch_minlag20": {
+    "launch_mdt": "16:55",
+    "min_lag_min": 20,
+    "bound_mdt": "16:35",
+    "v5_weight_retained_default": 1.0,
+    "v5_weight_retained_satellogic": 1.0
+   },
+   "any_operator_first_launch_minlag30": {
+    "launch_mdt": "16:55",
+    "min_lag_min": 30,
+    "bound_mdt": "16:25",
+    "v5_weight_retained_default": 1.0,
+    "v5_weight_retained_satellogic": 1.0
+   }
+  },
+  "implied_lags": {
+   "front at fire 15:28": {
+    "to_first_public_air_ambulance_take_off_min": 90.4,
+    "to_first_inbound_take_off_any_operator_min": 87.1,
+    "to_first_estimated_on_ground_in_Wainwright_area_min": 127.5
+   },
+   "v5 Range 2 median": {
+    "to_first_public_air_ambulance_take_off_min": 79.3,
+    "to_first_inbound_take_off_any_operator_min": 75.9,
+    "to_first_estimated_on_ground_in_Wainwright_area_min": 116.4
+   },
+   "v5 road head median": {
+    "to_first_public_air_ambulance_take_off_min": 76.3,
+    "to_first_inbound_take_off_any_operator_min": 72.9,
+    "to_first_estimated_on_ground_in_Wainwright_area_min": 113.4
+   },
+   "v5 Range 15 p90 (latest 10-90% edge)": {
+    "to_first_public_air_ambulance_take_off_min": 60.3,
+    "to_first_inbound_take_off_any_operator_min": 56.9,
+    "to_first_estimated_on_ground_in_Wainwright_area_min": 97.4
+   },
+   "DND 'just before 4:00' (taken as 15:55-16:00)": {
+    "to_first_public_air_ambulance_take_off_min": 60.8,
+    "to_first_inbound_take_off_any_operator_min": 57.4,
+    "to_first_estimated_on_ground_in_Wainwright_area_min": 97.9
+   }
+  },
+  "updated_arrival_summary": {
+   "Range 2 (RSO)": {
+    "v5_default": {
+     "median": "15:39",
+     "p10": "15:34",
+     "p90": "15:51",
+     "share_3:30-3:45": 0.744,
+     "share_3:45-4:00": 0.245,
+     "share_after_4:00": 0.011
+    },
+    "v5_satellogic": {
+     "median": "15:39",
+     "p10": "15:34",
+     "p90": "15:51",
+     "share_3:30-3:45": 0.743,
+     "share_3:45-4:00": 0.246,
+     "share_after_4:00": 0.011
+    },
+    "v51_air_default": {
+     "median": "15:39",
+     "p10": "15:34",
+     "p90": "15:51",
+     "share_3:30-3:45": 0.744,
+     "share_3:45-4:00": 0.245,
+     "share_after_4:00": 0.011
+    },
+    "v51_air_satellogic": {
+     "median": "15:39",
+     "p10": "15:34",
+     "p90": "15:51",
+     "share_3:30-3:45": 0.743,
+     "share_3:45-4:00": 0.246,
+     "share_after_4:00": 0.011
+    }
+   },
+   "Range 15 (RSO)": {
+    "v5_default": {
+     "median": "15:42",
+     "p10": "15:36",
+     "p90": "15:58",
+     "share_3:30-3:45": 0.615,
+     "share_3:45-4:00": 0.307,
+     "share_after_4:00": 0.079
+    },
+    "v5_satellogic": {
+     "median": "15:42",
+     "p10": "15:36",
+     "p90": "15:59",
+     "share_3:30-3:45": 0.614,
+     "share_3:45-4:00": 0.307,
+     "share_after_4:00": 0.08
+    },
+    "v51_air_default": {
+     "median": "15:42",
+     "p10": "15:36",
+     "p90": "15:58",
+     "share_3:30-3:45": 0.615,
+     "share_3:45-4:00": 0.307,
+     "share_after_4:00": 0.079
+    },
+    "v51_air_satellogic": {
+     "median": "15:42",
+     "p10": "15:36",
+     "p90": "15:59",
+     "share_3:30-3:45": 0.614,
+     "share_3:45-4:00": 0.307,
+     "share_after_4:00": 0.08
+    }
+   },
+   "Road head": {
+    "v5_default": {
+     "median": "15:42",
+     "p10": "15:36",
+     "p90": "15:56",
+     "share_3:30-3:45": 0.645,
+     "share_3:45-4:00": 0.303,
+     "share_after_4:00": 0.052
+    },
+    "v5_satellogic": {
+     "median": "15:42",
+     "p10": "15:36",
+     "p90": "15:56",
+     "share_3:30-3:45": 0.643,
+     "share_3:45-4:00": 0.304,
+     "share_after_4:00": 0.052
+    },
+    "v51_air_default": {
+     "median": "15:42",
+     "p10": "15:36",
+     "p90": "15:56",
+     "share_3:30-3:45": 0.645,
+     "share_3:45-4:00": 0.303,
+     "share_after_4:00": 0.052
+    },
+    "v51_air_satellogic": {
+     "median": "15:42",
+     "p10": "15:36",
+     "p90": "15:56",
+     "share_3:30-3:45": 0.643,
+     "share_3:45-4:00": 0.304,
+     "share_after_4:00": 0.052
+    }
+   }
+  },
+  "reading": "Every weighted v5 run reaches Range 2, Range 15 and the road head well before the bound, so v5.1's air-informed arrival windows are identical to v5's."
+ },
+ "airspace_null_check": {
+  "window": "14:00-18:00 MDT, within 80 km of the fire centre, all aircraft in the part-1 pull",
+  "aircraft_heard": 36,
+  "aircraft_below_12000ft": 4,
+  "military_flagged_aircraft_anywhere_in_pull": 1,
+  "below_12000ft_by_aircraft": {
+   "C-GSAB": [
+    "15:23:41",
+    "15:34:12"
+   ],
+   "C-FSUG": [
+    "17:19:22",
+    "17:29:38"
+   ],
+   "C-FLCI": [
+    "17:20:06",
+    "17:32:20"
+   ],
+   "C-GLUR": [
+    "17:52:05",
+    "17:59:50"
+   ]
+  },
+  "gap_below_12000ft_mdt": [
+   "15:34:12",
+   "17:20:06",
+   105.9
+  ]
+ },
+ "linkage": {
+  "low_traffic_gap_within_80km_mdt": [
+   "15:34:12",
+   "17:20:06",
+   105.9
+  ],
+  "positions_within_25km": 1258,
+  "first_position_within_25km_mdt": "2026-10-17 17:27:34.930000067",
+  "positions_within_1km_of_burn": 0,
+  "min_km_to_burn_any_aircraft": 4.12,
+  "positions_in_downwind_sector": 6,
+  "downwind_sector_first_mdt": "2026-10-17 18:19:22.069999933",
+  "approach_paths_max_cross_track_km_median": 12.215,
+  "vertical_irregularity_median_by_zone": {
+   "reversals_per_10min": {
+    "Wainwright area (<=40 km of CYWV)": 0.0,
+    "other airfield (<=40 km)": 0.0
+   },
+   "alt_30s_change_sd_ft": {
+    "Wainwright area (<=40 km of CYWV)": 84.0,
+    "other airfield (<=40 km)": 158.0
+   }
+  },
+  "c510_at_front": {
+   "closest_km_fire": 29.50431845657653,
+   "alt_at_closest": "15825",
+   "min_after_surface_front_range": [
+    3.6,
+    94.0
+   ]
+  }
+ }
+}
