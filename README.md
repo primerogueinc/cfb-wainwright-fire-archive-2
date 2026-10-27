@@ -17,6 +17,7 @@ Part 2 covers **Rubicon Ridge**, working model v5. It started on Oct. 26, 2026. 
 | `data/rubicon-ridge/derived/polar_visible/` | Every VIIRS and MODIS pass, 1–6 p.m. MDT, with geometry and cloud. No polar pass imaged the intense phase. The leads are Aqua MODIS at 3:18 p.m. and NOAA-20 at 2:50 p.m. The imagery itself has not been pulled yet. |
 | `data/rubicon-ridge/model_v5/` | Working model v5: 2,160-run ensemble, scar-fit weights, arrival times at Range 2, Range 15 and the road head, and the v4-vs-v5 comparison. `scar_satellogic/` refits it to the 70 cm burn outline. **Working results, not yet published.** See `ABOUT.md`. |
 | `data/rubicon-ridge/satellogic_2026-10-20/` | Prime Rogue's measurements from a Satellogic 70 cm image taken Oct. 20, 2026, 12:56 p.m. MDT. Includes the burn outline, unburned islands, edge runs along tracks, ground classes, objects near the ranges, distances from Range 2, Range 15 and the road head to the burn edge, and the image footprint. **Vectors and tables only. No imagery** (see Licences). See `ABOUT.md`. |
+| `data/terrain3d/VERSIONS.md` | Which 3D reconstruction video goes with which working model: the v4 videos in part 1 (frozen) and what a Rubicon Ridge (v5) version changes. |
 | `scripts/rubicon_ridge/` | The code behind all of the above. |
 
 ## Running model v5
