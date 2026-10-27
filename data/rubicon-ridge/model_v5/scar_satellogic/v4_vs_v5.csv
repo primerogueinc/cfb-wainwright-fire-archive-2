@@ -1,0 +1,13 @@
+item,v4 (Oct. 25),v5 Rubicon Ridge
+Front at the fire,15:16 (CZWN station) or 15:25 (allowance),15:27 / 15:29 / 15:31 (moving line fitted to 9 stations/sensors; 15:28 +/- 0.5 best)
+Front geometry,same time everywhere,moving line toward 114.5 deg at 77.3 km/h
+Post-front wind,5 schedules incl. 'authentic stoic' slow veer; fixed 306/315 deg,"5 schedules from SUSTAINED 10 m wind: CZWN observed veer 290-307 deg, fixed 300/310/315 deg, RAP/HRDPS mean"
+Post-front spread,head ROS fixed 4.4 / 8 / 12 km/h,FBP O-1a or O-1b from ISI (hourly FFMC) x 0.5/1.0/1.25 (about 3.4-12.9 km/h)
+April 20 spring burn,same as other grass,spread factor 0.5 or 0.75 (1.0 as unweighted control)
+Runs,240,2160
+Best overlap with scar (Jaccard),0.51-0.55,0.531
+"Range 2, v4 OSM point (weighted median, 10-90%)",15:21 (front 15:16) / 15:30 (front 15:25); +5.3 min (3.1-10.0),15:36 (15:32-15:43); +6.3 min (3.8-14.5)
+"Range 2, official RSO grid (weighted)",not modelled,15:39 (15:34-15:51); +9.7 min (6.0-20.8)
+Range 15 (weighted),not modelled,15:42 (15:36-15:59); +13.4 min (8.2-29.9)
+Road head (weighted),15:26 (front 15:16) / 15:34 (front 15:25); +10.1 min (5.9-18.6),15:42 (15:36-15:56); +12.0 min (7.8-27.3)
+Share of weight after 15:45 at road head,0.04 (front 15:16) / 0.09 (front 15:25),0.36

@@ -1,0 +1,165 @@
+{
+ "image": {
+  "platform": "Satellogic NewSat-49",
+  "datetime_utc": "2026-10-20T18:56Z",
+  "gsd_m": 0.7,
+  "off_nadir_deg": 24.2,
+  "sun_elevation_deg": 27,
+  "bands": "R,G,B,NIR TOA reflectance (uint16 x1e4)",
+  "licence": "licensed via SkyFi; imagery not in repo"
+ },
+ "outline": {
+  "shift_applied_m": {
+   "E": 1.7,
+   "N": -0.3
+  },
+  "net_burned_perimeter_ha": 1049.8218640000032,
+  "envelope_ha": 1085.2003540000094,
+  "islands_n": 52,
+  "islands_ha": 35.37849000000605,
+  "dropped_slivers_ha": 0.03971449999989895,
+  "old_main_total_ha": 1079.1799999999548,
+  "old_main_in_image_ha": 1055.0814320019579,
+  "old_main_outside_image_ha": 24.09856799799707,
+  "sensitivity_P>=0.35": {
+   "net_ha": 1063.2931889999832,
+   "envelope_ha": 1093.1330864999825
+  },
+  "sensitivity_P>=0.65": {
+   "net_ha": 1036.882850499984,
+   "envelope_ha": 1072.0465489999917
+  },
+  "envelope_minus_old_ha": 30.118921998051555,
+  "gain_ha": 42.22344474390968,
+  "loss_ha": 12.108353564851333,
+  "iou_envelope_vs_old": 0.9504388252023908,
+  "edge_displacement_m": {
+   "note": "old boundary sampled every 20 m inside image; + = Satellogic burn extends beyond S2/Landsat edge",
+   "n": 1037,
+   "median": 3.6613434371534423,
+   "median_abs": 9.46634079226882,
+   "p90_abs": 49.683678623234556,
+   "share_within_10m": 0.5188042430086789,
+   "share_within_20m": 0.7666345226615237,
+   "by_sector": {
+    "E": {
+     "n": 119,
+     "median": -0.9,
+     "median_abs": 6.4,
+     "max_out": 56.5,
+     "max_in": -34.4
+    },
+    "N": {
+     "n": 247,
+     "median": 2.3,
+     "median_abs": 8.3,
+     "max_out": 62.8,
+     "max_in": -26.8
+    },
+    "NE": {
+     "n": 39,
+     "median": -0.7,
+     "median_abs": 5.9,
+     "max_out": 12.8,
+     "max_in": -18.2
+    },
+    "NW": {
+     "n": 101,
+     "median": 4.5,
+     "median_abs": 7.0,
+     "max_out": 31.2,
+     "max_in": -16.0
+    },
+    "S": {
+     "n": 67,
+     "median": 2.7,
+     "median_abs": 23.2,
+     "max_out": 120.1,
+     "max_in": -53.7
+    },
+    "SE": {
+     "n": 225,
+     "median": -1.3,
+     "median_abs": 10.4,
+     "max_out": 115.0,
+     "max_in": -42.0
+    },
+    "SW": {
+     "n": 73,
+     "median": 78.0,
+     "median_abs": 78.0,
+     "max_out": 271.6,
+     "max_in": 6.5
+    },
+    "W": {
+     "n": 166,
+     "median": 8.8,
+     "median_abs": 10.3,
+     "max_out": 136.6,
+     "max_in": -31.7
+    }
+   }
+  }
+ },
+ "outline_pipeline_stats": {
+  "threshold": 0.5019607843137255,
+  "px_area_m2": 0.48999999999999994,
+  "excluded_earlier_burns_ha": 141.86141899999998,
+  "excluded_osm_water_ha": 4.938415999999999,
+  "burned_not_connected_ha": 52.01815499999999,
+  "burned_ground_ha": 1038.649913,
+  "perimeter_area_ha": 1049.861578500003,
+  "n_islands_ge_0.1ha": 52,
+  "islands_ha": 35.37849000000605,
+  "n_parts": 9
+ },
+ "classifier": {
+  "model": "HistGradientBoosting(200 iter, 31 leaves, l2=1), balanced 150k/150k samples",
+  "holdout": {
+   "train W test E": {
+    "burned_recall": 0.9560302344166223,
+    "unburned_recall": 0.9734424586604309
+   },
+   "train E test W": {
+    "burned_recall": 0.9622842910514143,
+    "unburned_recall": 0.8956890107151757
+   }
+  },
+  "features": [
+   "NIR",
+   "R",
+   "I",
+   "NDVI",
+   "(R-B)/I",
+   "NIR_11",
+   "NDVI_11",
+   "NDVI_31",
+   "NIR_31",
+   "sdI_11",
+   "sdNIR_11"
+  ],
+  "use_nir": true
+ },
+ "surface_classes": {
+  "black ash": {
+   "ha": 200.5,
+   "share": 0.197
+  },
+  "grey/light ash": {
+   "ha": 212.9,
+   "share": 0.209
+  },
+  "standing vegetation (scorched or crown-unburned)": {
+   "ha": 45.5,
+   "share": 0.045
+  },
+  "intermediate dark-grey ash": {
+   "ha": 557.9,
+   "share": 0.548
+  },
+  "bright track/road/bare surface": {
+   "ha": 1.4,
+   "share": 0.001
+  }
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "convention": "dE/dN = position of a feature in the Satellogic image minus its position in the reference (m); + = east/north",
+ "sentinel2": {
+  "2026-10-19_B04": {
+   "n_tiles": 25,
+   "n_good": 24,
+   "dE_median": -1.5,
+   "dN_median": 0.5,
+   "dE_mad": 0.25,
+   "dN_mad": 0.5
+  },
+  "2026-10-19_B03": {
+   "n_tiles": 25,
+   "n_good": 24,
+   "dE_median": -1.75,
+   "dN_median": 0.5,
+   "dE_mad": 0.25,
+   "dN_mad": 0.5
+  },
+  "2026-10-19_B02": {
+   "n_tiles": 25,
+   "n_good": 22,
+   "dE_median": -2.0,
+   "dN_median": 0.0,
+   "dE_mad": 0.0,
+   "dN_mad": 0.5
+  },
+  "2026-10-19_B08": {
+   "n_tiles": 25,
+   "n_good": 24,
+   "dE_median": -1.5,
+   "dN_median": 0.25,
+   "dE_mad": 0.5,
+   "dN_mad": 0.25
+  },
+  "2026-10-04_B04": {
+   "n_tiles": 25,
+   "n_good": 13,
+   "dE_median": -1.0,
+   "dN_median": 0.0,
+   "dE_mad": 1.0,
+   "dN_mad": 0.5
+  },
+  "2026-10-04_B03": {
+   "n_tiles": 25,
+   "n_good": 14,
+   "dE_median": -1.75,
+   "dN_median": -0.5,
+   "dE_mad": 0.75,
+   "dN_mad": 0.5
+  },
+  "2026-10-04_B02": {
+   "n_tiles": 25,
+   "n_good": 15,
+   "dE_median": -2.0,
+   "dN_median": 0.0,
+   "dE_mad": 1.0,
+   "dN_mad": 0.5
+  },
+  "2026-10-04_B08": {
+   "n_tiles": 25,
+   "n_good": 14,
+   "dE_median": -0.5,
+   "dN_median": 0.0,
+   "dE_mad": 0.5,
+   "dN_mad": 0.5
+  }
+ },
+ "landsat": {
+  "2026-10-24/*/*_B4.TIF": {
+   "n": 14,
+   "dE_median": -3.75,
+   "dN_median": -1.5,
+   "dE_mad": 1.5,
+   "dN_mad": 1.5
+  }
+ },
+ "osm_roads": {
+  "n_used": 24,
+  "shift_E_m": -2.0238490012685726,
+  "shift_N_m": 8.178037228313222,
+  "median_abs_perp_offset_m": 1.9439348683924877,
+  "resid_rms_m": 3.346101602864809
+ },
+ "osm_note": "OSM fit is dominated by N-S roads (E well constrained, N poorly); not used for the correction",
+ "adopted": {
+  "image_minus_S2_dE_m": -1.69,
+  "image_minus_S2_dN_m": 0.31,
+  "correction_applied_to_all_vectors_m": {
+   "E": 1.7,
+   "N": -0.3
+  },
+  "basis": "mean of the Oct. 19 Sentinel-2 B02/B03/B04/B08 tile medians (24 tiles of 1.6 km, 10 m grid, phase correlation); Oct. 4 S2 and Oct. 24 Landsat agree in sign for E"
+ }
+}

@@ -1,0 +1,167 @@
+{
+ "method": "least-squares plane t = a + b*x + c*y (km, EPSG:3400, origin at the fire centre)",
+ "fire_centre_lonlat": [
+  -110.9052,
+  52.7645
+ ],
+ "stations": [
+  {
+   "name": "CFB Wainwright CZWN",
+   "lat": 52.8294,
+   "lon": -111.0956,
+   "t_mdt": "15:16",
+   "source": "ECCC hourly SWOB, peak gust 15:16 (82 km/h)",
+   "residual_min": -0.5
+  },
+  {
+   "name": "Albert Hall AGCM",
+   "lat": 53.1134,
+   "lon": -111.1812,
+   "t_mdt": "15:02",
+   "source": "ACIS hourly humidity (raw/acis/README.md), ~15:00-15:05",
+   "residual_min": 0.9
+  },
+  {
+   "name": "Bellshill AGCM",
+   "lat": 52.5824,
+   "lon": -111.4654,
+   "t_mdt": "15:02",
+   "source": "ACIS hourly humidity, ~15:00-15:05",
+   "residual_min": -7.1
+  },
+  {
+   "name": "Gilt Edge North AGCM",
+   "lat": 53.071,
+   "lon": -110.621,
+   "t_mdt": "15:30",
+   "source": "ACIS hourly humidity ~15:30 (peak gust 15:28)",
+   "residual_min": 1.4
+  },
+  {
+   "name": "Hughenden AGCM",
+   "lat": 52.5782,
+   "lon": -110.7837,
+   "t_mdt": "15:39",
+   "source": "ACIS hourly humidity ~15:39 (peak-gust proxy 15:43)",
+   "residual_min": -2.0
+  },
+  {
+   "name": "Wainwright town (PurpleAir)",
+   "lat": 52.8334,
+   "lon": -110.8601,
+   "t_mdt": "15:28",
+   "source": "PurpleAir dust spike 15:28",
+   "residual_min": 0.8
+  },
+  {
+   "name": "Castor (PurpleAir)",
+   "lat": 52.2197,
+   "lon": -111.9063,
+   "t_mdt": "15:07",
+   "source": "PurpleAir dust spike 15:07",
+   "residual_min": 4.4
+  },
+  {
+   "name": "Coronation CWCT",
+   "lat": 52.07427,
+   "lon": -111.449205,
+   "t_mdt": "15:31",
+   "source": "ECCC 1-min, wind shift 15:31",
+   "residual_min": 1.0
+  },
+  {
+   "name": "Lloydminster CYLL",
+   "lat": 53.3106,
+   "lon": -110.074,
+   "t_mdt": "15:45",
+   "source": "ECCC SPECIs 15:41-15:48, ~15:45",
+   "residual_min": 1.2
+  }
+ ],
+ "fit": {
+  "t_fire_min": 27.89,
+  "speed_kmh": 77.3,
+  "toward_deg": 114.5,
+  "gradient_min_per_km": [
+   0.7061,
+   -0.322
+  ],
+  "rms_residual_min": 3.0
+ },
+ "leave_one_out": [
+  {
+   "t_fire_min": 27.94,
+   "speed_kmh": 77.5,
+   "toward_deg": 114.5,
+   "left_out": "CFB Wainwright CZWN"
+  },
+  {
+   "t_fire_min": 27.8,
+   "speed_kmh": 75.3,
+   "toward_deg": 114.9,
+   "left_out": "Albert Hall AGCM"
+  },
+  {
+   "t_fire_min": 28.54,
+   "speed_kmh": 81.6,
+   "toward_deg": 114.9,
+   "left_out": "Bellshill AGCM"
+  },
+  {
+   "t_fire_min": 27.66,
+   "speed_kmh": 77.4,
+   "toward_deg": 114.7,
+   "left_out": "Gilt Edge North AGCM"
+  },
+  {
+   "t_fire_min": 28.4,
+   "speed_kmh": 74.6,
+   "toward_deg": 114.9,
+   "left_out": "Hughenden AGCM"
+  },
+  {
+   "t_fire_min": 27.77,
+   "speed_kmh": 77.4,
+   "toward_deg": 114.5,
+   "left_out": "Wainwright town (PurpleAir)"
+  },
+  {
+   "t_fire_min": 27.46,
+   "speed_kmh": 73.6,
+   "toward_deg": 113.2,
+   "left_out": "Castor (PurpleAir)"
+  },
+  {
+   "t_fire_min": 27.6,
+   "speed_kmh": 78.9,
+   "toward_deg": 113.8,
+   "left_out": "Coronation CWCT"
+  },
+  {
+   "t_fire_min": 27.47,
+   "speed_kmh": 78.6,
+   "toward_deg": 115.0,
+   "left_out": "Lloydminster CYLL"
+  }
+ ],
+ "loo_range": {
+  "t_fire": [
+   27.46,
+   28.54
+  ],
+  "toward": [
+   113.2,
+   115.0
+  ],
+  "speed": [
+   73.6,
+   81.6
+  ]
+ },
+ "front_times_at_fire_used": [
+  "15:27",
+  "15:29",
+  "15:31"
+ ],
+ "note": "Model uses the fitted gradient (direction and speed) and shifts the time at the fire to 15:27 / 15:29 / 15:31."
+}

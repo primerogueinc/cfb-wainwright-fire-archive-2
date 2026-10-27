@@ -1,0 +1,111 @@
+{
+ "model": "Rubicon Ridge, working model v5",
+ "grid": {
+  "res_m": 40.0,
+  "H": 330,
+  "W": 350,
+  "crs": "EPSG:3400",
+  "minx": 769401.1741466953,
+  "maxy": 5858314.176126951
+ },
+ "scar": {
+  "path": "data/infrastructure/scar_patches_revised.geojson",
+  "mode": "largest",
+  "cells": 6750,
+  "km2": 10.8
+ },
+ "cases": [
+  "v4a_2x_lb3.0_0400",
+  "v4b_2x_lb3.0_0500",
+  "v4c_1.5x_lb1.5_0600",
+  "v4d_3x_lb3.0_0630"
+ ],
+ "front_times_at_fire": [
+  "15:27",
+  "15:29",
+  "15:31"
+ ],
+ "front_plane": {
+  "t_fire_min": 27.89,
+  "speed_kmh": 77.3,
+  "toward_deg": 114.5,
+  "gradient_min_per_km": [
+   0.7061,
+   -0.322
+  ],
+  "rms_residual_min": 3.0
+ },
+ "schedules": {
+  "W1_czwn_obs": "CZWN observed (veer 290->300->307, 61 -> 48 -> 45 -> 37 km/h)",
+  "W2_fixed300": "300 deg, 48 km/h then CZWN hourly decline",
+  "W3_fixed310": "310 deg (Hughenden 308-312), 48 km/h then decline",
+  "W4_fixed315": "315 deg (v4 best fit), 48 km/h then decline",
+  "W5_models": "mean of RAP and HRDPS (12Z/18Z) 10 m wind at the fire, 16:00-19:00 MDT"
+ },
+ "fuels": [
+  "O-1a",
+  "O-1b"
+ ],
+ "ros_multipliers": [
+  0.5,
+  1.0,
+  1.25
+ ],
+ "spring_burn_factors": {
+  "weighted": [
+   0.5,
+   0.75
+  ],
+  "control_unweighted": [
+   1.0
+  ]
+ },
+ "shapes": {
+  "steady": "FBP grass L:B = 1.1 WS^0.464",
+  "gusty": "L:B 3.0"
+ },
+ "curing_pct": 95,
+ "weighting": "w = exp((J - J_max) / 0.05) over the weighted runs (spring-burn factor 0.5 or 0.75)",
+ "frp_check": {
+  "load_kg_m2": 0.35,
+  "heat_kJ_kg": 18000.0,
+  "radiative_fraction": 0.15,
+  "goes_line_time_assumed": {
+   "15:10": 11.0,
+   "15:30": 31.0,
+   "15:40": 41.0
+  },
+  "goes_obs_mw": {
+   "15:10": 76.5,
+   "15:30": 1215.4,
+   "15:40": 336.3
+  }
+ },
+ "spring_burn": {
+  "path": "data/fuel/burn_2026-04-20_pda2.geojson",
+  "cells": 6154,
+  "share_burned_in_fit_scar": 0.486
+ },
+ "reference_points": {
+  "Range 2 (RSO)": [
+   -110.90089,
+   52.772
+  ],
+  "Range 11 (RSO)": [
+   -110.96129,
+   52.76796
+  ],
+  "Range 15 (RSO)": [
+   -110.89946,
+   52.77034
+  ],
+  "Road head": [
+   -110.89965,
+   52.77045
+  ],
+  "Range 2 point (OSM, v4)": [
+   -110.9063,
+   52.7728
+  ]
+ }
+}

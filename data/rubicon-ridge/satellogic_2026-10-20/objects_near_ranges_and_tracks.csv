@@ -1,0 +1,17 @@
+object_id,description,approx_size,confidence,nearest_point,dist_to_nearest_point_m,inside_burn,dist_to_burn_edge_m,utm12_E,utm12_N,lon,lat
+O1,vehicle-sized object on the N-S road; band-to-band colour smear consistent with motion at acquisition,~2.5 x 5 m (smear ~15 m),high,Range 2,138,False,34.0,506753.9,5847033.0,-110.899885,52.773082
+O2,vehicle-sized object on the N-S road; colour smear consistent with motion at acquisition,~2.5 x 5 m (smear ~12 m),high,Range 2,609,False,29.6,506725.3,5847520.2,-110.900299,52.777463
+O3,small blue object inside the turnaround loop at the west end of the Range 2 access road (equipment or small vehicle),~2.8 x 3.5 m,medium,Range 2,280,False,36.3,506415.5,5846985.1,-110.904903,52.772656
+O4,"large bright white object on the gravel pad at the west end of the Range 2 access road, shadow on north side (structure, trailer or large vehicle; not resolvable)","<=11 x 12 m (saturated, upper bound)",high,Range 2,337,False,19.3,506359.1,5846992.0,-110.905738,52.772719
+O5,"small bright object ~14 m west of O4, with shadow",~2 x 3.5 m,medium,Range 2,350,False,6.3,506345.5,5846994.4,-110.90594,52.77274
+O6,"small bright object on the west shoulder of the N-S road at the road head, shadow to north",~2.8 x 5.6 m,high,Road head,16,False,14.8,506768.9,5846756.0,-110.899669,52.770592
+O7,"small bright object ~7 m NE of O6, shadow to north",~2 x 4 m,high,Road head,22,False,22.2,506773.9,5846761.5,-110.899595,52.770641
+O8,"large bright white object on open ground ~80 m SE of Range 15, shadow on north side (structure, trailer or large vehicle; not resolvable)","<=10 x 14 m (saturated, upper bound)",high,Range 15,86,False,28.8,506856.9,5846684.4,-110.898366,52.769947
+O9,small blue object ~30 m SE of O8,~1.5 x 2 m,medium,Range 15,116,False,20.3,506880.6,5846664.7,-110.898015,52.76977
+O10,"small bright item (one of a pair ~10 m apart) on graded ground east of the N-S road, ~110 m NE of Range 15",~2 m,low-medium,Road head,119,False,109.3,506839.7,5846836.7,-110.898618,52.771317
+O11,small bright item (pair with O10),~2 m,low-medium,Road head,125,False,118.2,506849.7,5846836.7,-110.898469,52.771317
+O12,"small bright item (one of a pair ~9 m apart) east of the N-S road, ~360 m N of the road head",~2-3 m,low-medium,Range 2,230,False,97.9,506817.7,5847100.7,-110.898938,52.77369
+O13,small bright item (pair with O12),~2-3 m,low-medium,Range 2,235,False,106.4,506826.7,5847100.7,-110.898805,52.77369
+O14,small bright object with shadow between two track forks at the north tip of the burn,~2 x 3.5 m,medium,Range 2,1682,False,34.0,506694.9,5848594.7,-110.900728,52.787122
+O15,"bright white vehicle/trailer-sized object on the track ~300 m S of the north tip, shadow to north","<=8 x 10 m (saturated, upper bound)",high,Range 2,1394,False,87.1,506650.6,5848306.0,-110.901391,52.784528
+O16,faint pale elongated object beside the east boundary road allowance (possible vehicle; could be a ground feature),~2 x 6 m,low,Range 15,2266,False,17.0,508435.1,5845177.2,-110.875012,52.756376
