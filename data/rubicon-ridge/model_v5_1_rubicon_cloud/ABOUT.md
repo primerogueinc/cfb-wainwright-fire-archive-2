@@ -147,6 +147,18 @@ Full details are in `raw/adsb_night_low/README.md` and `provenance_check.json`. 
 | `fig_response_timeline.png` | The air response as a Gantt chart, 3–6:45 p.m. and the whole night |
 | `anim_tracks_1500-0400.gif` | 10-minute frames with 30-minute trails (0.3 MB) |
 
+## Response-flight maps (`maps/`)
+
+Plain maps of the same supplied positions (the 40 km, at-or-below-12,000-ft window), one colour per aircraft:
+
+| File | What |
+|---|---|
+| `maps/aircraft_tracks_map.png` | All 11 aircraft, full tracks in the window, with airfields and heliports (Wainwright Airport CYWV runway 13/31; Field 21 / CZWN; Camp Wainwright helipad CFF7; Wainwright Health Centre heliport CWH2), each with its distance from the fire centre, and 5–40 km distance rings |
+| `maps/aircraft_tracks_animation.mp4` | The same as an animation, 2-minute steps, 3:31 p.m. Oct. 17 to 3:58 a.m. Oct. 18 MDT, 20-minute trails, altitude labels (31 s) |
+| `maps/aircraft_range_topo.png` | Tracks over the ranges and terrain (NRCan MRDEM-30 hillshade, 10 m contours), with official range grids (2024 Range Standing Orders), OpenStreetMap range areas and danger-area boundaries, 2–10 km rings, and the time each aircraft dropped below or climbed back into receiver coverage |
+
+Distances are straight-line from the fire centre (52.7645 N, 110.9052 W): Wainwright Airport about 4.7 km, Camp Wainwright helipad about 7 km, Health Centre heliport about 9 km, Field 21 about 14.7 km. Airfield positions: Transport Canada data via SkyVector and AirportRoutes. Receivers heard nothing near the base below about 4,250 ft (about 2,000 ft above ground), so the maps cannot show landings. Code: `scripts/rubicon_ridge/model_v5_1/maps/` (`python3 air_anim.py <positions.csv> <out_dir>`, `python3 air_range_topo.py <positions.csv> <out.png>`).
+
 ## Reproduce
 
 ```
