@@ -43,7 +43,10 @@ sev = np.load(os.path.join(Ld, 'severity.npy'))
 scar5 = (np.asarray(Image.open(os.path.join(Ld, 'scar.png'))) > 127).astype(np.float32)
 story = json.load(open(os.path.join(Ld, os.environ.get('STORY', 'story.json'))))['frames']
 TR = Scene(Ld, Sd)
-FX = FireFX(TR, arr)
+FL = np.load(os.path.join(Ld, 'flame_len.npy')) if os.path.exists(os.path.join(Ld, 'flame_len.npy')) else None
+RO = np.load(os.path.join(Ld, 'ros_mpm.npy')) if os.path.exists(os.path.join(Ld, 'ros_mpm.npy')) else None
+FX = FireFX(TR, arr, flame_len=FL, ros=RO, step=1)
+OUT_W, OUT_H = (int(v) for v in os.environ.get('OUT_RES', '1920x1080').split('x'))
 
 # ---------------------------------------------------------------- wind (CZWN hourly)
 import pandas as pd
@@ -113,9 +116,15 @@ def load_key(key):
     if key not in CACHE:
         if len(CACHE) > 6:
             CACHE.pop(next(iter(CACHE)))
-        base = np.asarray(Image.open(os.path.join(Bd, f'base_{key}.png')).convert('RGB')).astype(np.float32) / 255
+        bimg = Image.open(os.path.join(Bd, f'base_{key}.png')).convert('RGB')
+        if bimg.size != (OUT_W, OUT_H):   # renders are 960x540; composite at full HD (text, flames and fire edge drawn sharp)
+            bimg = bimg.resize((OUT_W, OUT_H), Image.LANCZOS)
+        base = np.asarray(bimg).astype(np.float32) / 255
         xy = cv2.imread(os.path.join(Bd, f'xy_{key}.png'), cv2.IMREAD_UNCHANGED).astype(np.float64) / 65535
         x = lin(xy[..., 2]) * Wm; y = lin(xy[..., 1]) * Hm; ground = xy[..., 3] > 0.5
+        if x.shape != (OUT_H, OUT_W):
+            x = cv2.resize(x, (OUT_W, OUT_H), interpolation=cv2.INTER_LINEAR); y = cv2.resize(y, (OUT_W, OUT_H), interpolation=cv2.INTER_LINEAR)
+            ground = cv2.resize(ground.astype(np.uint8), (OUT_W, OUT_H), interpolation=cv2.INTER_NEAREST) > 0
         col = x / RES - 0.5; row = (G['h'] - 1) - (y / RES - 0.5)
         A = map_coordinates(np.where(np.isfinite(arr), arr, 1e5), [row, col], order=1, mode='nearest')
         A[A > 5e4] = np.nan
@@ -169,7 +178,7 @@ def caption(fr, t):
                 'Its 4:30 a.m. forecast had already called for west winds gusting to 80 km/h this afternoon. No fire has been detected yet.', RED)
     if t < T_FIRST:
         return (clock(t), 'No fire detected yet',
-                'The first detection is Landsat 8 at 12:17 p.m. When and how the fire started is not known. Grenadiers on Range 11: illustrative.', WHITE)
+                'First detection: Landsat 8, 12:17 p.m. The AGL was in use on Range 11 (Maj.-Gen. Rutland); positions illustrative.', WHITE)
     if t < hm(12, 18):
         return (clock(t), 'Landsat 8: the first detection of the fire',
                 'Yellow: 59 fire pixels around a strip about 2 km long that had already burned: burning for some time by then (inferred).', AMBER)
@@ -356,7 +365,7 @@ for fr in story:
     ft = Image.new('RGBA', (W, int(40 * S)), (*INK, 210)); im.paste(ft, (0, H - int(40 * S)), ft); dr = ImageDraw.Draw(im)
     dr.text((18 * S, H - 33 * S), 'Clock not to scale · true scale · fire: Rubicon Ridge working model v5, weighted median of 1,440 runs (modelled) · '
             'observed: Landsat 8, VIIRS, CZWN wind, ECCC, Sentinel-2 scar', font=freg(11 * S), fill=MUTED)
-    dr.text((18 * S, H - 17 * S), 'Figures representative, not to scale · smoke illustrative · ranges: 2024 Range Standing Orders grids · '
+    dr.text((18 * S, H - 17 * S), 'Figures representative, not to scale · flames true scale (Byram, modelled spread) · smoke illustrative · ranges: 2024 Range Standing Orders · '
             'working results, not yet published · Prime Rogue Inc.', font=freg(11 * S), fill=MUTED)
     im.convert('RGB').save(os.path.join(LAB, f'{i:04d}.png'))
     if i % 40 == 0:

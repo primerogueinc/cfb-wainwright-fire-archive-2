@@ -8,7 +8,7 @@ Copied from part 1 (scripts/terrain3d/compose_pov.py, the v4 eye-level draft) an
   * smoke: v5 has no smoke model. v4's smoke model timing at the road head is carried over relative to the front and to the
     fire's arrival: clear until the front, visibility under 1 km 2 minutes after it, under 100 m 2 minutes before the fire,
     log-interpolated in between. Labelled as such in the video.
-Flame heights (2 m before the front, 3-7 m after) and the smoke column are illustrative. No people are shown. Each panel
+Flame heights: Byram flame length at the modelled spread rate (flame_length.py; about 1 m before the front, 4-5 m at the run's edge). The smoke column is illustrative. No people are shown. Each panel
 cuts to black just before the modelled fire reaches its point.
 
 A JSON config (argv 4, optional) can replace the panels, segments, captions and text (same format as DEFAULT_CFG below).
@@ -40,6 +40,8 @@ CAN = np.load(os.path.join(Ld, 'canopy.npy')).astype(np.float64)
 Z0 = float(np.percentile(H0, 1))
 arr = np.load(os.path.join(Ld, 'arrival_min.npy')).astype(np.float64)
 sev = np.load(os.path.join(Ld, 'severity.npy'))
+FLEN = np.load(os.path.join(Ld, 'flame_len.npy')) if os.path.exists(os.path.join(Ld, 'flame_len.npy')) else None  # Byram, m
+ROS = np.load(os.path.join(Ld, 'ros_mpm.npy')) if os.path.exists(os.path.join(Ld, 'ros_mpm.npy')) else None
 
 
 def gz(x, y):
@@ -103,7 +105,7 @@ DEFAULT_CFG = dict(
          ['Modelled, not observed. DND has not said where C Company was. Rubicon Ridge, working model v5: working results, not yet published · github.com/primerogueinc/cfb-wainwright-fire-archive-2', 17, 'MUTED']],
     fade_note='Rubicon Ridge working model v5, weighted median of 1,440 runs. A model, not an observation.',
     footer='True scale · terrain NRCan MRDEM-30 + Meta/WRI canopy · fire: Rubicon Ridge working model v5, weighted median (modelled) · smoke timing from v4 · '
-           'flames and smoke column illustrative · clock not to scale · places: 2024 Range Standing Orders · Prime Rogue Inc.',
+           'flame height from modelled spread (Byram) · smoke column illustrative · clock not to scale · RSO 2024 places · Prime Rogue Inc.',
     badge='RUBICON RIDGE · WORKING MODEL v5 · WORKING RESULTS, NOT YET PUBLISHED',
     seconds_from=hm(15, 16))
 CFG = json.load(open(CFGP)) if CFGP else DEFAULT_CFG
@@ -144,10 +146,14 @@ class Panel:
         X = (cc + 0.5) * RES; Y = (G['h'] - 1 - rr + 0.5) * RES
         d = np.hypot(X - self.loc[0], Y - self.loc[1]); keep = (d < 4000) & (d > 5)
         X, Y, T = X[keep], Y[keep], arr[rr[keep], cc[keep]]
+        LF = FLEN[rr[keep], cc[keep]] if FLEN is not None else np.where(T < T_SHIFT, 2.0, 5.0)
+        RS = ROS[rr[keep], cc[keep]] if ROS is not None else np.full(len(T), 20.0)
         Z = gz(X, Y)
         u, v, dep = self.project(np.column_stack([X, Y, Z]))
         vis = (dep > 1) & (u > -20) & (u < self.W + 20)
-        self.cells = dict(X=X[vis], Y=Y[vis], Z=Z[vis], T=T[vis], u=u[vis], v=v[vis], d=dep[vis])
+        # burning time of a 10 m cell: the edge crosses it, then about 30 s of flaming behind it
+        WIN = np.clip(10.0 / np.maximum(np.nan_to_num(RS, nan=20.0), 0.5) + 0.5, 0.45, 12.0)
+        self.cells = dict(X=X[vis], Y=Y[vis], Z=Z[vis], T=T[vis], u=u[vis], v=v[vis], d=dep[vis], L=LF[vis], win=WIN[vis])
         rng = np.random.default_rng(11 + len(slug)); n = len(self.cells['X'])
         self.cells['ph'] = rng.uniform(0, 2 * math.pi, n); self.cells['emit'] = rng.random(n)
 
@@ -180,13 +186,13 @@ class Panel:
         img = img * (1 - f) + fogc.astype(np.float32) * f
         # --- flames (3D columns, hidden behind terrain and canopy), and the smoke column
         c = self.cells
-        win = np.where(c['T'] < T_SHIFT, 6.0, 0.45)
-        dtc = t - c['T'] if t >= T_FIRST else np.full_like(c['T'], -1.0); act = (dtc >= 0) & (dtc <= win)
+        win = c['win']
+        dtc = t - c['T'] if t >= T_FIRST else np.full_like(c['T'], -1.0); act = (dtc >= 0) & (dtc <= win) & np.isfinite(c['L'])
         fl = np.zeros_like(img)
         idx = np.nonzero(act)[0]
         for j in idx:
             d = c['d'][j]; pre = c['T'][j] < T_SHIFT
-            h = (2.0 if pre else 3.0 + 4.0 * (1 - dtc[j] / win[j])) * (0.75 + 0.25 * math.sin(g * 1.9 + c['ph'][j]))
+            h = c['L'][j] * (0.6 + 0.4 * (1 - dtc[j] / win[j])) * (0.8 + 0.2 * math.sin(g * 1.9 + c['ph'][j]))   # Byram flame length at the modelled spread rate
             u0, vb = c['u'][j], c['v'][j]
             ut, vt, _ = self.project(np.array([c['X'][j], c['Y'][j], c['Z'][j] + h]))
             vt = float(vt[0]); hpx = vb - vt
@@ -209,12 +215,12 @@ class Panel:
             sway = math.sin(g * 1.3 + c['ph'][j] * 3) * 0.15 * wpx * q
             half = (wpx / 2) * (1 - q) ** 0.8 + 0.5
             shape = (np.abs(xs - (u0 + sway)) <= half).astype(np.float32)
-            col = (np.stack([1.0 - 0.1 * q, 0.55 - 0.35 * q, 0.15 - 0.12 * q], -1) * (1 - 0.5 * q)[..., None])
-            att = math.exp(-3 * d / vis) ** 0.5
+            col = (np.stack([np.ones_like(q), 0.85 - 0.55 * q, 0.45 - 0.42 * q], -1) * (1.15 - 0.45 * q)[..., None])
+            att = max(math.exp(-1.2 * d / vis) ** 0.5, 0.15)   # flames glow through smoke far more than the ground shows
             fl[y0:y1 + 1, x0:x1 + 1] = np.maximum(fl[y0:y1 + 1, x0:x1 + 1], col * (ok * shape)[..., None] * att)
         if idx.size:
-            fl = fl + cv2.GaussianBlur(fl, (0, 0), 6) * 0.9
-        img = img + fl
+            fl = fl + cv2.GaussianBlur(fl, (0, 0), 3) * 0.7 + cv2.GaussianBlur(fl, (0, 0), 14) * 0.9 + cv2.GaussianBlur(fl, (0, 0), 60) * 2.5 * dens   # light scattered by the smoke
+        img = 1 - (1 - img) * (1 - np.clip(fl, 0, 1))   # screen blend: vivid without washing out
         im = Image.fromarray((np.clip(img, 0, 1) * 255).astype(np.uint8)).convert('RGBA')
         # smoke column from the fire (illustrative): puffs rise and drift downwind, drawn at
         # quarter resolution and blurred so they read as a plume, fading into the smoke haze
