@@ -30,7 +30,7 @@ SHA-256 (first 16 hex): 3D-0 orbit `6176f1fbd337de41`, 3D-1 `9ddaaec2e2dbbc3b`, 
 
 ## What a v5 (Rubicon Ridge) version changes
 
-- **Front at the fire 3:28, not 3:16.** The gust card, wind compass and scenario start times move to the front's arrival at the fire (CZWN still records its gust at 3:16, 15 km west).
+- **Front at the fire 3:28, not 3:16.** The gust card, wind compass and scenario start times move to the front's arrival at the fire (CZWN still records its gust at 3:16, 14.7 km west-northwest; see CORRECTIONS.md, Oct. 28).
 - **Fire after the front:** v5's best-weighted run instead of v4's (v5 best: case v4c, front 3:27, fixed 315°, O-1b × 1.25, steady shape). Arrivals ~3:36-3:42.
 - **Places from the 2024 Range Standing Orders:** Range 2, Range 11, Range 13 and Range 15 at their official grids; the road head labelled as Range 15's entrance.
 - **Smoke visibility** re-timed to the later front (v5 has no smoke model yet; v4's lead times would be carried over and labelled as such).
