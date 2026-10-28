@@ -31,6 +31,7 @@ INK = (14, 16, 20); WHITE = (255, 255, 255); MUTED = (200, 205, 212)
 AMBER = (255, 196, 64); BLUE = (110, 170, 255); RED = (255, 90, 60)
 hm = lambda h, m=0: h * 60 + m
 T_SHIFT = hm(15, 27.9)  # v5: the front reaches the fire
+T_FIRST = hm(12, 17)    # first detection (Landsat 8); nothing is drawn burning before it
 
 P = json.load(open(os.path.join(Ld, 'points.json')))
 G = P['grid']; RES = G['res']; Wm, Hm = G['w'] * RES, G['h'] * RES
@@ -80,21 +81,22 @@ N_ = {k: km(edge_at(v, hm(12, 17))) for k, v in PV.items()}
 DEFAULT_CFG = dict(
     panels=[dict(slug='range2', name='Range 2 (official grid)', arrive=A_['range2'], vis=vis_rule(A_['range2'])),
             dict(slug='roadhead', name='Range 15 / the road head', arrive=A_['roadhead'], vis=vis_rule(A_['roadhead']))],
-    segs=[(2.5, hm(11, 30), hm(12, 17), 'morning'), (2.5, hm(12, 17), hm(12, 17), 'landsat'), (3.0, hm(12, 17), hm(14, 14), 'creep'),
+    segs=[(3.5, hm(11, 42), hm(11, 42), 'alert'), (2.5, hm(11, 42), hm(12, 17), 'nofire'), (3.0, hm(12, 17), hm(12, 17), 'landsat'), (3.0, hm(12, 17), hm(14, 14), 'creep'),
           (3.0, hm(14, 14), hm(14, 14), 'warning'), (2.5, hm(14, 14), hm(15, 16), 'creep'), (3.0, hm(15, 16), hm(15, 16), 'czwn'),
           (2.5, hm(15, 16), T_SHIFT, 'prefront'), (3.5, T_SHIFT, T_SHIFT, 'front'), (16.0, T_SHIFT, hm(15, 37), 'run'),
           (10.0, hm(15, 37), hm(15, 42.5), 'run'), (6.0, hm(15, 42.5), hm(15, 42.5), 'end')],
     captions={
-        'morning': [f'The fire has been burning since about 5 a.m. (modelled), {N_["range2"]} to the west', 'Watch the skyline: from here most of the ground fire is hidden; the smoke rises above it.', 'AMBER'],
-        'landsat': ['Landsat 8 photographs the fire', f'Its nearest edge: about {N_["range2"]} from Range 2 and {N_["roadhead"]} from the road head (modelled).', 'AMBER'],
-        'creep': ['The fire creeps north; the wind rises', 'Spread between satellite passes is modelled (v4\'s morning cases, as carried into v5).', 'AMBER'],
+        'alert': ['Environment Canada issues a wind warning for areas to the west', 'Its 4:30 a.m. forecast had already called for west winds gusting to 80 km/h this afternoon. No fire has been detected yet.', 'RED'],
+        'nofire': ['No fire detected yet', 'The first detection is Landsat 8 at 12:17 p.m. When and how the fire started is not known.', 'WHITE'],
+        'landsat': ['Landsat 8: the first detection of the fire, to the west', f'Its edge about {N_["range2"]} from Range 2 and {N_["roadhead"]} from the road head. It had been burning for some time by then (inferred from its size).', 'AMBER'],
+        'creep': ['The fire creeps north; the wind rises', 'Spread between satellite passes is modelled (Rubicon Ridge v5).', 'AMBER'],
         'warning': ['Environment Canada adds Wainwright to its wind warning: gusts up to 100 km/h', 'The wind is from the southwest, carrying the smoke away to the northeast.', 'RED'],
         'czwn': ['An 82 km/h gust at the CFB Wainwright station, 14.7 km west-northwest', 'Here the wind is still from the southwest. The front reaches the fire about 12 minutes later.', 'AMBER'],
         'prefront': ['The cold front crosses the range toward the fire', 'Fitted to 9 stations and sensors: moving east-southeast at about 77 km/h.', 'AMBER'],
         'front': ['The front reaches the fire. The wind turns northwest', f'The fire\'s edge is about {E_["range2"]} from Range 2 and {E_["roadhead"]} from Range 15 / the road head.', 'RED'],
         'run': ['The fire runs southeast, toward both points', 'Smoke: v4\'s smoke timing carried over (v5 has no smoke model): under 1 km 2 min after the front, under 100 m 2 min before the fire.', 'RED']},
     end=[['What could be seen from Range 2 and the road head (working model v5)', 34, 'WHITE'], ['', 10, 'WHITE'],
-         ['Through the morning and early afternoon, most of the ground fire was hidden by the terrain; its smoke rose above it.', 22, 'MUTED'],
+         ['No fire was detected before 12:17 p.m. From then until the front, most of the ground fire was hidden by the terrain; its smoke rose above it.', 22, 'MUTED'],
          [f'At about 3:28 p.m. the front reached the fire and turned it toward both points: its edge was about {E_["range2"]} from Range 2 and {E_["roadhead"]} from the road head.', 22, 'MUTED'],
          [f'On v5\'s weighted-median fire, it reached Range 2 at about {hhmm(A_["range2"])} and Range 15 / the road head at about {hhmm(A_["roadhead"])} p.m. (10-90%: 3:34-3:51 and 3:36-3:58).', 22, 'MUTED'],
          ['', 10, 'WHITE'],
@@ -160,6 +162,8 @@ class Panel:
 
     def frame(self, t, g):
         img = self.base.copy(); A = self.A
+        if t < T_FIRST:
+            A = np.full_like(A, np.nan)
         dt = t - A; burning = np.nan_to_num(dt, nan=-1) >= 0
         tau = np.where(A < T_SHIFT, 12.0, 0.6)
         glow = np.where(burning, np.exp(-np.clip(np.nan_to_num(dt), 0, None) / tau), 0) ** 2
@@ -177,7 +181,7 @@ class Panel:
         # --- flames (3D columns, hidden behind terrain and canopy), and the smoke column
         c = self.cells
         win = np.where(c['T'] < T_SHIFT, 6.0, 0.45)
-        dtc = t - c['T']; act = (dtc >= 0) & (dtc <= win)
+        dtc = t - c['T'] if t >= T_FIRST else np.full_like(c['T'], -1.0); act = (dtc >= 0) & (dtc <= win)
         fl = np.zeros_like(img)
         idx = np.nonzero(act)[0]
         for j in idx:

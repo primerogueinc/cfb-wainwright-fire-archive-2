@@ -38,18 +38,18 @@ class Story:
         self.Z0 = float(np.percentile(self.h, 1))
         self.RES = P['grid']['res']
         c = P['scar_centroid']; self.tgt0 = np.array([c['x'], c['y'], self.gz(c['x'], c['y'])])
-        self.poses = {'A': self.pose_A(), 'B': self.pose_B(), 'C': self.pose_C()}
+        self.poses = {'A5': self.pose_A(), 'B': self.pose_B(), 'C': self.pose_C()}
         # (seconds, clock minutes, shot or (shotFrom, shotTo)) keyframes; clock is piecewise linear
         S = []
         def seg(dur, t0, t1, shot, **kw):
             S.append(dict(dur=dur, t0=t0, t1=t1, shot=shot, **kw))
         # Static shots can be lengthened freely (rendered once); camera moves keep their length
         # so their renders are reused. tmap = (fraction of segment, clock) knots to slow key moments.
-        seg(4.0, hm(4, 30), hm(4, 50), 'B', card='forecast')
-        seg(2.0, hm(4, 50), hm(5, 20), ('B', 'A'), rkey='BA_1')
-        seg(8.0, hm(5, 20), hm(11, 40), 'A', tmap=[(0, hm(5, 20)), (0.3, hm(6, 30)), (1, hm(11, 40))])
-        seg(2.0, hm(11, 40), hm(12, 17), ('A', 'B'), rkey='AB_3')
-        seg(3.0, hm(12, 17), hm(12, 17), 'B')
+        seg(4.0, hm(11, 42), hm(11, 42), 'B', card='alert')
+        seg(2.0, hm(11, 42), hm(11, 47), ('B', 'A5'), rkey='BA5')
+        seg(3.5, hm(11, 47), hm(12, 12), 'A5')
+        seg(2.0, hm(12, 12), hm(12, 17), ('A5', 'B'), rkey='AB5')
+        seg(3.5, hm(12, 17), hm(12, 17), 'B')
         seg(2.5, hm(12, 17), hm(14, 14), 'B')
         seg(3.5, hm(14, 14), hm(14, 18), 'B', card='warning')
         seg(1.2, hm(14, 18), hm(14, 49), 'B')
@@ -97,7 +97,7 @@ class Story:
         return (self.tgt0 + np.array([R * math.sin(ang), R * math.cos(ang), Hc]), self.tgt0 + np.array([0, 0, -450]))
 
     def pose_A(self):
-        r11, ic = self.P['camera_ref']['Range 11'], self.P['extra']['agl_impact_centre']
+        r11, ic = self.P['extra']['Range 11'], self.P['extra']['agl_impact_centre']   # Standing Orders grid (new render 'A5')
         mx, my = r11['x'] + 0.78 * (ic['x'] - r11['x']), r11['y'] + 0.78 * (ic['y'] - r11['y'])
         ta = np.array([mx, my, self.gz(mx, my)])
         ang = math.radians(248); R, Hc = 3350, 2500

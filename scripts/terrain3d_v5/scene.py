@@ -32,6 +32,7 @@ ap.add_argument('--burn', type=float, default=0.0, help='0 = pre-fire imagery, 1
 ap.add_argument('--fps', type=int, default=24)
 ap.add_argument('--povnames', default='Range 2,Roadhead', help='povbase: comma-separated points.json pov names')
 ap.add_argument('--heading', type=float, default=300.0, help='povbase: camera heading, degrees')
+ap.add_argument('--story', default='story.json', help='base: storyboard file in the layers folder')
 ap.add_argument('--prologue', type=int, default=0, help='render N morning frames (camera eases from Range 11 to the fire camera)')
 ap.add_argument('--simtime', type=float, default=None, help='fixed clock (minutes) for a still, e.g. 600 = 10:00')
 a = ap.parse_args()
@@ -524,7 +525,7 @@ if a.mode == 'base':
     cmb = N.new('ShaderNodeCombineXYZ'); Lk.new(dx.outputs[0], cmb.inputs[0]); Lk.new(dy.outputs[0], cmb.inputs[1]); cmb.inputs[2].default_value = 1.0
     em = N.new('ShaderNodeEmission'); Lk.new(cmb.outputs[0], em.inputs['Color']); em.inputs['Strength'].default_value = 1.0
     Lk.new(em.outputs[0], N['Material Output'].inputs['Surface'])
-    story = json.load(open(L('story.json')))['frames']
+    story = json.load(open(L(a.story)))['frames']
     keys = {}
     for fr in story:
         keys.setdefault(fr['key'], (fr['loc'], fr['look']))

@@ -23,7 +23,7 @@ from fx2d import FireFX
 
 Ld, Bd, Sd, SWOB, OUT = sys.argv[1:6]
 FPS = 12
-LAB = os.path.join(os.path.dirname(os.path.abspath(OUT)), 'story_lab_v5'); os.makedirs(LAB, exist_ok=True)
+LAB = os.path.join(os.path.dirname(os.path.abspath(OUT)), os.path.basename(OUT)[:-4] + '_lab'); os.makedirs(LAB, exist_ok=True)
 F = '/usr/share/fonts/opentype/inter/'
 fb = lambda s: ImageFont.truetype(F + 'Inter-Bold.otf', int(s))
 fm = lambda s: ImageFont.truetype(F + 'Inter-Medium.otf', int(s))
@@ -33,6 +33,7 @@ AMBER = (255, 196, 64); BLUE = (110, 170, 255); RED = (255, 90, 60); GREEN = (12
 hm = lambda h, m=0: h * 60 + m
 T_SHIFT = hm(15, 27.9)  # v5: the front reaches the fire (CZWN's gust was at 3:16)
 T_CZWN = hm(15, 16)
+T_FIRST = hm(12, 17)  # first detection (Landsat 8). Nothing is drawn burning before it.
 
 P = json.load(open(os.path.join(Ld, 'points.json')))
 G = P['grid']; RES = G['res']; Wm, Hm = G['w'] * RES, G['h'] * RES
@@ -40,7 +41,7 @@ arr = np.load(os.path.join(Ld, 'arrival_min.npy')).astype(np.float64)
 unk = np.load(os.path.join(Ld, 'unknown.npy'))
 sev = np.load(os.path.join(Ld, 'severity.npy'))
 scar5 = (np.asarray(Image.open(os.path.join(Ld, 'scar.png'))) > 127).astype(np.float32)
-story = json.load(open(os.path.join(Ld, 'story.json')))['frames']
+story = json.load(open(os.path.join(Ld, os.environ.get('STORY', 'story.json'))))['frames']
 TR = Scene(Ld, Sd)
 FX = FireFX(TR, arr)
 
@@ -127,6 +128,8 @@ def load_key(key):
 
 def paint_fire(d, t, final_fade):
     base = d['base'].copy(); A = d['A']
+    if t < T_FIRST and not final_fade:   # before the first detection: no fire drawn
+        return base, np.zeros(A.shape, np.float32)
     dt = t - A
     burning = np.nan_to_num(dt, nan=-1) >= 0
     tau = np.where(A < T_SHIFT, 15.0, 0.8)
@@ -161,23 +164,20 @@ def caption(fr, t):
     if fr['final']:
         return ('Oct. 24', 'The burn scar, as Sentinel-2 saw it a week later',
                 'Grey: burned, timing unknown (not connected to the main fire in the model; includes heat VIIRS saw on Oct. 14).', WHITE)
-    if fr['card'] == 'forecast':
-        return (clock(t), 'Environment Canada\'s 4:30 a.m. forecast: west winds gusting to 80 km/h this afternoon',
-                'Overnight the wind is light, from the south-southwest (CZWN station).', WHITE)
-    if t < hm(7, 50):
-        return (clock(t), 'Modelled: the fire starts in Range 11\'s impact area',
-                'v5 keeps v4\'s four morning cases (start 4:00-6:30 a.m.); shown: their weighted median, about 5 a.m. '
-                'Night firing or a holdover? The model can\'t tell.', AMBER)
-    if t < hm(12, 17):
-        return (clock(t), 'Sunrise 7:50. Grenadiers fire on Range 11; the fire burns on in the impact area',
-                'Grass fire spreading northeast with a southwest wind (modelled). Firing positions and targets illustrative.', AMBER)
+    if fr['card'] == 'alert':
+        return (clock(t), 'Environment Canada issues a wind warning for areas to the west',
+                'Its 4:30 a.m. forecast had already called for west winds gusting to 80 km/h this afternoon. No fire has been detected yet.', RED)
+    if t < T_FIRST:
+        return (clock(t), 'No fire detected yet',
+                'The first detection is Landsat 8 at 12:17 p.m. When and how the fire started is not known. Grenadiers on Range 11: illustrative.', WHITE)
     if t < hm(12, 18):
-        return (clock(t), 'Landsat 8 photographs the fire', 'Yellow: its 59 fire pixels. A strip about 2 km long has burned.', AMBER)
+        return (clock(t), 'Landsat 8: the first detection of the fire',
+                'Yellow: 59 fire pixels around a strip about 2 km long that had already burned: burning for some time by then (inferred).', AMBER)
     if fr['card'] == 'warning':
         return (clock(t), 'Environment Canada adds Wainwright to its wind warning: gusts up to 100 km/h',
                 'Wainwright added to the wind warning in force to the west since 11:42 a.m. The fire is about 1.2 km from Range 2.', RED)
     if t < hm(14, 49):
-        return (clock(t), 'The fire creeps north; the wind rises', 'Spread between satellite passes is modelled (v4\'s morning cases, carried into v5).', AMBER)
+        return (clock(t), 'The fire creeps north; the wind rises', 'Spread between satellite passes is modelled (Rubicon Ridge v5).', AMBER)
     if t < T_CZWN:
         return (clock(t), 'NOAA-20 sees the fire (blue)', 'The wind is gusting to 50-55 km/h from the southwest.', BLUE)
     if fr['card'] == 'czwn':
@@ -237,9 +237,9 @@ for fr in story:
     im = Image.fromarray((img * 255).astype(np.uint8))
     W, H = im.size; S = W / 960
     e = sun_elev(t); dark = float(np.clip((2.0 - e) / 8.0, 0, 1))
-    if not fr['final']:
-        im = FX.draw(im, i, i, t)  # flames and smoke
-    # grenadiers: in daylight on the firing line, firing through the morning
+    if not fr['final'] and t >= T_FIRST:
+        im = FX.draw(im, i, i, t)  # flames and smoke (none before the first detection)
+    # grenadiers: on the firing line (illustrative)
     if not fr['final'] and t >= hm(7, 50):
         TR.draw(im, i, i, min(t, T_SHIFT - 1), group=TR.r11, alpha=1.0)
         if t < hm(12, 0):
