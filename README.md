@@ -19,7 +19,8 @@ Part 2 covers **Rubicon Ridge**, working model v5. It started on Oct. 26, 2026. 
 | `data/rubicon-ridge/raw/adsb_night_low/` | Supplied ADS-B positions near the base, 3:31 p.m. Oct. 17 to 3:58 a.m. Oct. 18, unaltered, with checksum. A filtered subset of the adsb.lol archive. See its `README.md`. |
 | `data/rubicon-ridge/model_v5_1_rubicon_cloud/` | Working model v5.1 "Rubicon Cloud": the air-response timeline from ADS-B and how it links to v5. No aircraft at or below 12,000 ft was heard within 80 km of the fire from 3:34 to 5:20 p.m. The first inbound air-ambulance launches were at about 4:55 (estimated) and 4:58 p.m. (STARS, heard). This is an upper bound only, so v5's arrival windows are unchanged. **Working results, not yet published.** See `ABOUT.md`. |
 | `data/rubicon-ridge/satellogic_2026-10-20/` | Prime Rogue's measurements from a Satellogic 70 cm image taken Oct. 20, 2026, 12:56 p.m. MDT. Includes the burn outline, unburned islands, edge runs along tracks, ground classes, objects near the ranges, distances from Range 2, Range 15 and the road head to the burn edge, and the image footprint. **Vectors and tables only. No imagery** (see Licences). See `ABOUT.md`. |
-| `data/terrain3d/VERSIONS.md` | Which 3D reconstruction video goes with which working model: the v4 videos in part 1 (frozen) and what a Rubicon Ridge (v5) version changes. |
+| `data/terrain3d/VERSIONS.md` | Which 3D reconstruction video goes with which working model: the v4 videos in part 1 (frozen) and the Rubicon Ridge (v5) versions. |
+| `data/terrain3d/v5/` | Rubicon Ridge (v5) 3D videos, working results: full timeline and eye level from the official Range 2 grid and the road head. Code: `scripts/terrain3d_v5/`. |
 | `scripts/rubicon_ridge/` | The code behind all of the above. |
 
 ## Running model v5

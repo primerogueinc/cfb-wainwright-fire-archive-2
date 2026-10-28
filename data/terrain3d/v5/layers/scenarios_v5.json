@@ -1,0 +1,49 @@
+{
+ "method": "Escape scenarios for the v5 3D timeline: leaving the official Range 2 grid (and the road head) at the front's arrival at the\nfire, 3 minutes later and 7 minutes later.\n\nMethod as v4 part 4 (part 1, data/authentic-stoic-stress-test/part4_escape/), simplified: straight routes in 72 directions,\njogging in kit at 8 km/h on flat ground (no slope adjustment), safe ground = never reached by the run (outside the scar + 150 m\nconfinement) or burned at least 5 minutes earlier; a route works if it reaches safe ground with the fire at least 3 minutes\nbehind at every point. Departures are measured from each run's own front time at the fire (15:27, 15:29 or 15:31).\n\nOdds: share of the fit weight (1,440 weighted runs, v5 weighting) with at least one working route. The video's runners use the\nweighted-median arrival field and the route that works best when leaving at the front (shortest distance to safety).",
+ "odds": {
+  "Range 2 (RSO)": {
+   "front+0": 1.0,
+   "front+5": 0.661,
+   "front+10": 0.342
+  },
+  "Road head": {
+   "front+0": 1.0,
+   "front+5": 0.872,
+   "front+10": 0.46
+  }
+ },
+ "runners": [
+  {
+   "dep": 928.0,
+   "delay": 0,
+   "dir": 80,
+   "dist": 200.0,
+   "t_end": 929.5,
+   "fate": "clear",
+   "odds": 1.0
+  },
+  {
+   "dep": 933.0,
+   "delay": 5,
+   "dir": 80,
+   "dist": 200.0,
+   "t_end": 934.5,
+   "fate": "clear",
+   "odds": 0.661
+  },
+  {
+   "dep": 938.0,
+   "delay": 10,
+   "dir": 80,
+   "dist": 200.0,
+   "t_end": 939.5,
+   "fate": "close",
+   "odds": 0.342
+  }
+ ],
+ "range2_arrival_min_after_1500": 39.05923843383789,
+ "start_xy_epsg3400": [
+  776365.9283190318,
+  5852445.626317142
+ ]
+}

@@ -28,10 +28,15 @@ The 3D videos follow the working-model versions. A model version bumps only when
 
 SHA-256 (first 16 hex): 3D-0 orbit `6176f1fbd337de41`, 3D-1 `9ddaaec2e2dbbc3b`, 3D-2 `011afbabae28a501`, 3D-3 `7449a1cf754c8cea`, 3D-4 `047ad8018cdb88d2`, 3D-5 `fb1d9bcad8a12cc3`, E1 `c6762a32b9385660`.
 
-## What a v5 (Rubicon Ridge) version changes
+## Videos made for v5 (Rubicon Ridge; working results, not yet published; in part 2)
 
-- **Front at the fire 3:28, not 3:16.** The gust card, wind compass and scenario start times move to the front's arrival at the fire (CZWN still records its gust at 3:16, 14.7 km west-northwest; see CORRECTIONS.md, Oct. 28).
-- **Fire after the front:** v5's best-weighted run instead of v4's (v5 best: case v4c, front 3:27, fixed 315°, O-1b × 1.25, steady shape). Arrivals ~3:36-3:42.
-- **Places from the 2024 Range Standing Orders:** Range 2, Range 11, Range 13 and Range 15 at their official grids; the road head labelled as Range 15's entrance.
-- **Smoke visibility** re-timed to the later front (v5 has no smoke model yet; v4's lead times would be carried over and labelled as such).
-- Labelled "Rubicon Ridge, working model v5 — working results, not yet published" until v5 is published.
+| Version | File (part 2, `data/terrain3d/v5/`) | Made | Fire | Places | Notes |
+|---|---|---|---|---|---|
+| **v5 3D-T1** | `cfb-wainwright-3d-timeline-v5-draft1.mp4` | Oct. 28 | v5 weighted median of 1,440 runs; front at the fire 3:28 (CZWN gust 3:16 shown at the station) | 2024 Range Standing Orders | Full timeline, 4:30 a.m. to the run southeast; escape scenarios from the official Range 2 grid at +0/+5/+10 min after the front (100% / 66% / 34% of v5's weight get clear). Reuses the v4 camera renders. |
+| **v5 3D-E1** | `cfb-wainwright-3d-eye-level-v5-draft1.mp4` | Oct. 28 | as T1; smoke timing carried over from v4 (v5 has no smoke model) | official Range 2 grid; road head (Range 15 entrance) | Fire arrives about 3:39 and 3:42. |
+
+SHA-256 (first 16 hex): v5 3D-T1 `68f810559ca97a35`, v5 3D-E1 `4c737195b249b34c`.
+
+Details, method and the re-run check: `data/terrain3d/v5/ABOUT.md`. Code: `scripts/terrain3d_v5/`.
+
+The v5 videos use v5's weighted-median fire, not a single "best" run: many runs tie on fit weight, and the median reproduces v5's published arrival medians.
