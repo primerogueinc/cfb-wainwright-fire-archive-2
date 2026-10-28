@@ -362,10 +362,10 @@ for fr in story:
         dr.text((bx, by + 60 * S), f'Wind {ws:.0f} km/h', font=fm(13 * S), fill=WHITE, anchor='mm', stroke_width=2, stroke_fill=INK)
         dr.text((bx, by + 76 * S), f'gusts {wg:.0f}', font=fm(13 * S), fill=WHITE, anchor='mm', stroke_width=2, stroke_fill=INK)
     # footer
-    ft = Image.new('RGBA', (W, int(40 * S)), (*INK, 210)); im.paste(ft, (0, H - int(40 * S)), ft); dr = ImageDraw.Draw(im)
+    ft = Image.new('RGBA', (W, int(40 * S)), (*INK, 255)); im.paste(ft, (0, H - int(40 * S)), ft); dr = ImageDraw.Draw(im)
     dr.text((18 * S, H - 33 * S), 'Clock not to scale · true scale · fire: Rubicon Ridge working model v5, weighted median of 1,440 runs (modelled) · '
             'observed: Landsat 8, VIIRS, CZWN wind, ECCC, Sentinel-2 scar', font=freg(11 * S), fill=MUTED)
-    dr.text((18 * S, H - 17 * S), 'Figures representative, not to scale · flames true scale (Byram, modelled spread) · smoke illustrative · ranges: 2024 Range Standing Orders · '
+    dr.text((18 * S, H - 17 * S), 'Figures representative · flames true scale (Byram, modelled spread) · smoke illustrative · ranges: 2024 Standing Orders · '
             'working results, not yet published · Prime Rogue Inc.', font=freg(11 * S), fill=MUTED)
     im.convert('RGB').save(os.path.join(LAB, f'{i:04d}.png'))
     if i % 40 == 0:
