@@ -146,6 +146,7 @@ Full details are in `raw/adsb_night_low/README.md` and `provenance_check.json`. 
 | `fig_time_alt_dist.png` | Altitude and distance from the fire against time, per aircraft, with the front and v5 windows |
 | `fig_response_timeline.png` | The air response as a Gantt chart, 3–6:45 p.m. and the whole night |
 | `anim_tracks_1500-0400.gif` | 10-minute frames with 30-minute trails (0.3 MB) |
+| `video/` | Annotated explainer video for a general audience, "Rubicon Cloud: the air response to the CFB Wainwright fire" (1080p, 3:34, silent), with SRT captions, thumbnail and YouTube description. Four time-remapped chapters, 3:10 p.m. Oct. 17 to 4 a.m. Oct. 18: v5 front and fire-spread estimate, the 106-minute gap, the first launches, the overnight shuttle. Code: `scripts/rubicon_ridge/model_v5_1/video/make_video.py` |
 
 ## Response-flight maps (`maps/`)
 

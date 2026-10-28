@@ -1,0 +1,150 @@
+1
+00:00:00,300 --> 00:00:04,800
+Rubicon Cloud: the air response to the CFB Wainwright fire
+Oct. 17, 2026 · public flight data · Prime Rogue Inc.
+
+2
+00:00:05,200 --> 00:00:07,900
+Chapter 1: The fire turns
+3:10 to 4:05 p.m. · slowed down
+
+3
+00:00:08,200 --> 00:00:13,200
+3:10 p.m.: GOES-18 satellite sees the fire: 76 MW of fire power
+
+4
+00:00:10,500 --> 00:00:15,500
+A cold front sweeps in from the northwest at about 77 km/h
+
+5
+00:00:14,000 --> 00:00:19,000
+3:16 p.m.: Front passes the Field 21 weather station (CZWN): gust 82 km/h
+
+6
+00:00:18,000 --> 00:00:23,000
+3:20 p.m.: The satellite sees the fire's heat from 3:20 to 3:50 p.m.
+
+7
+00:00:24,850 --> 00:00:29,850
+3:28 p.m.: Cold front reaches the fire (working model v5)
+
+8
+00:00:28,600 --> 00:00:33,600
+3:30 p.m.: GOES-18 fire power jumps to 1,215 MW
+
+9
+00:00:32,500 --> 00:00:38,500
+Orange area: fire spread, working model v5 estimate (weighted median)
+
+10
+00:00:41,500 --> 00:00:48,500
+3:39 p.m.: Range 2 / Range 15 (model median 3:39 / 3:42); working-model estimates, 10–90%: 3:34–3:58
+
+11
+00:00:45,250 --> 00:00:50,250
+3:40 p.m.: GOES-18 fire power: 336 MW
+
+12
+00:00:53,333 --> 00:00:58,333
+Dashed line: final burn outline, measured from Oct. 20 imagery
+
+13
+00:00:59,000 --> 00:01:04,667
+DND: incident “just before 4:00” (Oct. 22 briefing)
+
+14
+00:01:01,667 --> 00:01:04,667
+Four soldiers died. DND said 39 were injured (as of Oct. 22).
+
+15
+00:01:04,867 --> 00:01:07,567
+Chapter 2: The quiet
+3:34 to 5:20 p.m. · sped up
+
+16
+00:01:07,742 --> 00:01:12,742
+3:34–5:20 p.m.: No aircraft at or below 12,000 ft heard within 80 km of the fire
+
+17
+00:01:11,417 --> 00:01:15,917
+Only airliners passed overhead, at 17,900 ft and higher
+
+18
+00:01:13,417 --> 00:01:18,917
+Military aircraft usually don't broadcast; the RCAF helicopters DND mentioned are not visible
+
+19
+00:01:19,117 --> 00:01:21,817
+Chapter 3: The response
+4:50 to 6:30 p.m.
+
+20
+00:01:24,517 --> 00:01:29,517
+~4:55 p.m.: King Air C-FSUG climbs out of the Lac La Biche area toward Wainwright (time estimated)
+
+21
+00:01:30,292 --> 00:01:36,292
+4:58 p.m.: STARS helicopter C-FLCI (STAR03) lifts off at Edmonton International
+
+22
+00:01:36,917 --> 00:01:41,917
+~40 min: Flight time Edmonton to Wainwright: about 40 minutes
+
+23
+00:01:44,917 --> 00:01:49,917
+5:20 p.m.: First aircraft heard within 80 km. The quiet lasted 106 minutes
+
+24
+00:01:50,667 --> 00:01:56,667
+~5:35 p.m.: C-FSUG and STAR03 reach the Wainwright area (landings estimated, ~5:35–5:37)
+
+25
+00:01:56,667 --> 00:02:01,667
+5:34 p.m.: SLG2 takes off from Saskatoon toward Wainwright
+
+26
+00:01:59,517 --> 00:02:04,517
+5:36 p.m.: CWA921 takes off from Edmonton International toward Wainwright
+
+27
+00:02:08,417 --> 00:02:13,417
+~5:57 p.m.: C-GWRS climbs out of the Fort McMurray area toward Wainwright (estimated)
+
+28
+00:02:15,117 --> 00:02:17,817
+Chapter 4: The shuttle
+6:30 p.m. to 4 a.m. · sped up
+
+29
+00:02:17,937 --> 00:02:24,937
+“They were cared for first in Wainwright, then flown to hospital across Alberta by STARS, Alberta Health Services paramedics, and Royal Canadian Air Force helicopters.”
+
+30
+00:02:21,677 --> 00:02:26,677
+~7:08 p.m.: First departure from Wainwright: SLG2 toward Saskatoon (lands 7:41 p.m.)
+
+31
+00:02:36,667 --> 00:02:42,667
+~9:38 p.m.: STAR03 and STAR11 leave; both tracks end at the University of Alberta Hospital site, Edmonton
+
+32
+00:02:50,917 --> 00:02:55,917
+Fixed-wing shuttles continue to Edmonton, Calgary and Saskatoon
+
+33
+00:03:11,817 --> 00:03:16,817
+3:31 a.m.: STAR01's track ends at the Foothills Medical Centre site, Calgary
+
+34
+00:03:14,167 --> 00:03:17,917
+~3:53 a.m.: Last departure in the data: SLG3 toward Saskatoon
+
+35
+00:03:18,117 --> 00:03:25,817
+What this data can't show: receivers hear nothing below about 4,250 ft; military aircraft don't broadcast; landing times are estimates; operators are inferred from call signs.
+
+36
+00:03:26,117 --> 00:03:33,817
+Sources: adsb.lol (ODbL), NOAA GOES, ECCC, NRCan MRDEM-30, © OpenStreetMap contributors, 2024 Range Standing Orders, Prime Rogue model v5/v5.1 (CC BY-NC 4.0).
+github.com/primerogueinc/cfb-wainwright-fire-archive-2
+
