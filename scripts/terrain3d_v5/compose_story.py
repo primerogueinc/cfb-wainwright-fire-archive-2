@@ -290,7 +290,7 @@ for fr in story:
             sx, sy, sz = TR.project(i, (x, y, TR.gz(x, y)))
             sx *= W / TR.W; sy *= H / TR.H
             key = ('standing_observer' if done else 'walking_equipment') + '_' + ('right' if pts[-1][0] >= pts[0][0] else 'left')
-            sp = TR.sprites[key]; k = 22 * S * (5200 / sz) * 0.75 / sp.height
+            sp = TR.sprites[key]; k = 22 * S * min(5200 / sz, 1.6) * 0.75 / sp.height
             spr = sp.resize((max(1, int(sp.width * k)), max(1, int(sp.height * k))), Image.LANCZOS)
             alpha = 1.0 if not (done and r['fate'] == 'overtaken') else max(0.3, 1 - (t - r['t_end']) / 1.5)
             a_ = spr.split()[3].point(lambda v: int(v * alpha)); halo = a_.filter(ImageFilter.MaxFilter(3))
@@ -304,7 +304,8 @@ for fr in story:
                         'close': f" · clear {clock(r['t_end'])[:4]}, fire under 3 min behind",
                         'overtaken': (" · fire reached Range 2 first" if r['dist'] == 0
                                       else f" · overtaken {clock(r['t_end'])[:4]}")}[r['fate']]
-            label_at(dr, sx + 10 * S, sy - (30 + 17 * (2 - jr)) * S, tag, None, S, col=r['col'])
+            lx, anc = (sx + 10 * S, 'la') if sx < W - 420 * S else (sx - 10 * S, 'ra')   # keep clear of the wind compass
+            label_at(dr, lx, sy - (30 + 17 * (2 - jr)) * S, tag, None, S, anchor=anc, col=r['col'])
         # legend
         bx, by = 18 * S, 108 * S
         box = Image.new('RGBA', (int(360 * S), int(92 * S)), (*INK, 205)); im.paste(box, (int(bx), int(by)), box)
@@ -328,6 +329,8 @@ for fr in story:
         if z > 0 and 0 < x < W and 100 * S < y < H - 50 * S:
             dr.ellipse([x - 4 * S, y - 4 * S, x + 4 * S, y + 4 * S], fill=WHITE, outline=INK, width=2)
             anc, off = (('rb', (-8, -6)) if k == 'Range 2' else ('lt', (8, 3)))
+            if anc == 'lt' and x > W - 230 * S:
+                anc, off = 'rt', (-8, 3)
             dr.text((x + off[0] * S, y + off[1] * S), NICE.get(k, k) if t >= T_SHIFT - 1 else k, font=fb(15 * S), fill=WHITE, stroke_width=3, stroke_fill=INK, anchor=anc)
     # header
     hdr = Image.new('RGBA', (W, int(92 * S)), (*INK, 210)); im.paste(hdr, (0, 0), hdr); dr = ImageDraw.Draw(im)

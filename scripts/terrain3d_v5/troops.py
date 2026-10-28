@@ -210,7 +210,7 @@ class Scene:
             if depth < 200 or not (-200 < x < im.width + 200 and -200 < y < im.height + 400):
                 continue
             sp = self.sprites[key]
-            near = 5200 / depth  # nearer figures a little larger
+            near = min(5200 / depth, 1.6)  # nearer figures a little larger (capped: low drone shots)
             if key.startswith('prone'):
                 k = hpx * 1.25 * near / sp.width
             else:

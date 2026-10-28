@@ -38,7 +38,7 @@ class Story:
         self.Z0 = float(np.percentile(self.h, 1))
         self.RES = P['grid']['res']
         c = P['scar_centroid']; self.tgt0 = np.array([c['x'], c['y'], self.gz(c['x'], c['y'])])
-        self.poses = {'A5': self.pose_A(), 'B': self.pose_B(), 'C': self.pose_C()}
+        self.poses = {'A6': self.pose_A(), 'B': self.pose_B(), 'C': self.pose_C()}
         # (seconds, clock minutes, shot or (shotFrom, shotTo)) keyframes; clock is piecewise linear
         S = []
         def seg(dur, t0, t1, shot, **kw):
@@ -46,9 +46,9 @@ class Story:
         # Static shots can be lengthened freely (rendered once); camera moves keep their length
         # so their renders are reused. tmap = (fraction of segment, clock) knots to slow key moments.
         seg(4.0, hm(11, 42), hm(11, 42), 'B', card='alert')
-        seg(2.0, hm(11, 42), hm(11, 47), ('B', 'A5'), rkey='BA5')
-        seg(3.5, hm(11, 47), hm(12, 12), 'A5')
-        seg(2.0, hm(12, 12), hm(12, 17), ('A5', 'B'), rkey='AB5')
+        seg(2.0, hm(11, 42), hm(11, 47), ('B', 'A6'), rkey='BA6')
+        seg(3.5, hm(11, 47), hm(12, 12), 'A6')
+        seg(2.0, hm(12, 12), hm(12, 17), ('A6', 'B'), rkey='AB6')
         seg(3.5, hm(12, 17), hm(12, 17), 'B')
         seg(2.5, hm(12, 17), hm(14, 14), 'B')
         seg(3.5, hm(14, 14), hm(14, 18), 'B', card='warning')
@@ -97,8 +97,8 @@ class Story:
         return (self.tgt0 + np.array([R * math.sin(ang), R * math.cos(ang), Hc]), self.tgt0 + np.array([0, 0, -450]))
 
     def pose_A(self):
-        r11, ic = self.P['extra']['Range 11'], self.P['extra']['agl_impact_centre']   # Standing Orders grid (new render 'A5')
-        mx, my = r11['x'] + 0.78 * (ic['x'] - r11['x']), r11['y'] + 0.78 * (ic['y'] - r11['y'])
+        r11, ic = self.P['extra']['Range 11'], self.P['extra']['agl_impact_centre']   # Standing Orders grid (new render 'A6', framed to keep the firing line in view)
+        mx, my = r11['x'] + 0.6 * (ic['x'] - r11['x']), r11['y'] + 0.6 * (ic['y'] - r11['y'])
         ta = np.array([mx, my, self.gz(mx, my)])
         ang = math.radians(248); R, Hc = 3350, 2500
         return (ta + np.array([R * math.sin(ang), R * math.cos(ang), Hc]), ta + np.array([0, 0, -550]))
