@@ -32,10 +32,12 @@ SHA-256 (first 16 hex): 3D-0 orbit `6176f1fbd337de41`, 3D-1 `9ddaaec2e2dbbc3b`, 
 
 | Version | File (part 2, `data/terrain3d/v5/`) | Made | Fire | Places | Notes |
 |---|---|---|---|---|---|
-| **v5 3D-T1** | `cfb-wainwright-3d-timeline-v5-draft1.mp4` | Oct. 28 | v5 weighted median of 1,440 runs; front at the fire 3:28 (CZWN gust 3:16 shown at the station) | 2024 Range Standing Orders | Full timeline, 4:30 a.m. to the run southeast; escape scenarios from the official Range 2 grid at +0/+5/+10 min after the front (100% / 66% / 34% of v5's weight get clear). Reuses the v4 camera renders. |
-| **v5 3D-E1** | `cfb-wainwright-3d-eye-level-v5-draft1.mp4` | Oct. 28 | as T1; smoke timing carried over from v4 (v5 has no smoke model) | official Range 2 grid; road head (Range 15 entrance) | Fire arrives about 3:39 and 3:42. |
+| **v5 3D-T3** | `cfb-wainwright-3d-timeline-v5-draft3.mp4` | Oct. 28 | v5 weighted median; nothing drawn before the 12:17 detection; flames true scale (Byram) | 2024 Range Standing Orders | **Current timeline.** Opens at the 11:42 a.m. wind warning. Escape scenarios from the official Range 2 grid (+0/+5/+10 min after the front: 100% / 66% / 34% of v5's weight get clear). |
+| **v5 3D-E3** | `cfb-wainwright-3d-eye-level-v5-draft3.mp4` | Oct. 28 | as T3; smoke timing carried over from v4 (v5 has no smoke model) | official Range 2 grid; road head (Range 15 entrance) | **Current eye level.** Fire arrives about 3:39 and 3:42. |
+| **v5 3D-D1** | `cfb-wainwright-3d-drone-v5-draft1.mp4` | Oct. 28 | as T3 | as T3 | **New.** Hypothetical drone following the fire's edge, down to about 300 m over Range 2. |
+| v5 3D-T1, E1 | `...-timeline-v5-draft1.mp4`, `...-eye-level-v5-draft1.mp4` | Oct. 28 | v5, but with v4's modelled morning fire from about 5 a.m. | as above | Superseded by T3 and E3. |
 
-SHA-256 (first 16 hex): v5 3D-T1 `68f810559ca97a35`, v5 3D-E1 `4c737195b249b34c`.
+SHA-256 (first 16 hex): v5 3D-T3 `23cd4f0aa3fb29f9`, 3D-E3 `7acb08319b90f4c5`, 3D-D1 `03402778fc67c389`; v5 3D-T1 `68f810559ca97a35`, v5 3D-E1 `4c737195b249b34c`.
 
 Details, method and the re-run check: `data/terrain3d/v5/ABOUT.md`. Code: `scripts/terrain3d_v5/`.
 

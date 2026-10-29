@@ -8,10 +8,17 @@ Code: `scripts/terrain3d_v5/`, copied from part 1's `scripts/terrain3d/` and cha
 
 | Version | File | What it shows |
 |---|---|---|
-| v5 3D-T1 | `cfb-wainwright-3d-timeline-v5-draft1.mp4` | The full day from the 4:30 a.m. forecast to the fire's run southeast, from above, with the escape scenarios |
-| v5 3D-E1 | `cfb-wainwright-3d-eye-level-v5-draft1.mp4` | Eye level (1.7 m) from the official Range 2 grid (top) and the road head / Range 15 entrance (bottom), 11:30 a.m. until the modelled fire arrives |
+| **v5 3D-T3** | `cfb-wainwright-3d-timeline-v5-draft3.mp4` | **Current.** From the 11:42 a.m. wind warning to the fire's run southeast, from above, with the escape scenarios |
+| **v5 3D-E3** | `cfb-wainwright-3d-eye-level-v5-draft3.mp4` | **Current.** Eye level (1.7 m) from the official Range 2 grid (top) and the road head / Range 15 entrance (bottom), 11:42 a.m. until the modelled fire arrives |
+| **v5 3D-D1** | `cfb-wainwright-3d-drone-v5-draft1.mp4` | **Current.** A hypothetical drone: wide over the fire until the front reaches it (3:28), then down to about 300 m over Range 2 and following the run southeast to 4:20 |
+| v5 3D-T1, 3D-E1 | `cfb-wainwright-3d-timeline-v5-draft1.mp4`, `cfb-wainwright-3d-eye-level-v5-draft1.mp4` | Superseded: drew v4's modelled morning fire from about 5 a.m. |
 
-Both videos are in this folder.
+### Changes in T3, E3 and D1 (Oct. 28)
+
+- **No fire before the first detection.** Nothing is drawn burning before Landsat 8's 12:17 p.m. pass. The videos open at Environment Canada's 11:42 a.m. wind warning for areas to the west (its 4:30 a.m. forecast is noted) with "No fire detected yet". At 12:17 the fire appears as the model has it then; the caption says it had been burning for some time, inferred from the size of the burned strip, not observed. When and how it started is not known.
+- **Range 11:** the automatic grenade launcher was in use (Maj.-Gen. Rutland, Oct. 22 briefing). Firing positions and figures are illustrative. The Range 11 shot is now framed on the Standing Orders grid.
+- **Flames at true scale.** Each 10 m cell's flame length is Byram's (1959) L = 0.0775 I^0.46, with fireline intensity I from v5's fuel values (18,000 kJ/kg, 0.35 kg/m²) and the local spread rate of the median arrival field (`flame_length.py`; `layers/flame_length_m_v5.tif`). About 1 m before the front (90% under 1.4 m) and 4-5 m along the edge after it. Before the front the spread rate is capped at 2 km/h, and the detection outline filled at one time (no spread signal) has no flames. Each cell flames while the edge crosses it plus about 30 s. From the overhead cameras most flames are a few pixels tall; the glow of the burning edge is drawn with them.
+- **Image quality:** overhead and drone frames are composited at 1920×1080 (the terrain renders are 960×540, upscaled); eye level is 1920×1080.
 
 ## What changed from the v4 videos
 
