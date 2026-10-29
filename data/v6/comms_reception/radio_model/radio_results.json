@@ -1,0 +1,73 @@
+{
+ "links": {
+  "Garrison hub (20 m mast, 50 W, 3 dBi) <-> handheld (5 W)": {
+   "loss_dB": 142.7,
+   "MAPL": 148,
+   "P": 0.75,
+   "dist_km": 6.3
+  },
+  "Garrison hub (20 m mast, 50 W, 3 dBi) <-> vehicle (50 W, 3 m)": {
+   "loss_dB": 136.4,
+   "MAPL": 163,
+   "P": 1.0,
+   "dist_km": 6.3
+  },
+  "Hilltop relay (10 m mast, 50 W, 3 dBi) <-> handheld (5 W)": {
+   "loss_dB": 165.3,
+   "MAPL": 148,
+   "P": 0.02,
+   "dist_km": 15.0
+  },
+  "Hilltop relay (10 m mast, 50 W, 3 dBi) <-> vehicle (50 W, 3 m)": {
+   "loss_dB": 158.6,
+   "MAPL": 163,
+   "P": 0.71,
+   "dist_km": 15.0
+  },
+  "Town fire base (169 MHz, 30 m) <-> portable at pairs range": {
+   "loss_dB": 152.4,
+   "MAPL": 157,
+   "P": 0.72,
+   "dist_km": 9.2
+  }
+ },
+ "area": {
+  "hh_hh": {
+   "MAPL": 140,
+   "pct_area_ge50": 1.0,
+   "median_reach_km_ge50": 1.3
+  },
+  "veh_hh": {
+   "MAPL": 155,
+   "pct_area_ge50": 10.2,
+   "median_reach_km_ge50": 4.3
+  },
+  "veh_veh": {
+   "MAPL": 160,
+   "pct_area_ge50": 37.4,
+   "median_reach_km_ge50": 7.8
+  },
+  "area_Garrison hub (20 m mast, 50 W, 3 dBi)": {
+   "MAPL": 148,
+   "pct_area_ge50": 37.4,
+   "median_reach_km_ge50": 11.3
+  },
+  "area_Hilltop relay (10 m mast, 50 W, 3 dBi)": {
+   "MAPL": 148,
+   "pct_area_ge50": 3.9,
+   "median_reach_km_ge50": 11.4
+  },
+  "town_fire": {
+   "MAPL": 157,
+   "pct_area_ge50": 78.5,
+   "median_reach_km_ge50": 12.5
+  }
+ },
+ "hill": {
+  "lonlat": [
+   -110.9336,
+   52.6363
+  ],
+  "elev_m": 728.0
+ }
+}

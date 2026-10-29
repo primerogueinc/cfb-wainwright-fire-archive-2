@@ -1,0 +1,130 @@
+{
+ "Baseline (standard air, before the fire)": {
+  "Handheld to handheld (low VHF)": {
+   "pairs_median300": 1.0,
+   "burn_ge50_pct": 30.8,
+   "reach_p90_km": 1.3
+  },
+  "Vehicle to handheld (low VHF)": {
+   "pairs_median300": 1.0,
+   "burn_ge50_pct": 100.0,
+   "reach_p90_km": 4.3
+  },
+  "Handheld to garrison base station (assumed)": {
+   "pairs_median300": 0.75,
+   "burn_ge50_pct": 60.5,
+   "reach_p90_km": 11.3
+  },
+  "Wainwright fire base to portables (169 MHz)": {
+   "pairs_median300": 0.75,
+   "burn_ge50_pct": 74.8,
+   "reach_p90_km": 12.5
+  },
+  "Phone, Rogers (700 MHz)": {
+   "pairs_median300": 0.87,
+   "burn_ge50_pct": 79.1,
+   "reach_p90_km": 12.9
+  },
+  "Phone, TELUS (700 MHz)": {
+   "pairs_median300": 0.33,
+   "burn_ge50_pct": 38.8,
+   "reach_p90_km": 13.1
+  }
+ },
+ "Fire-time air (k = 1.2, Oct. 17 6 p.m. sounding)": {
+  "Handheld to handheld (low VHF)": {
+   "pairs_median300": 1.0,
+   "burn_ge50_pct": 30.8,
+   "reach_p90_km": 1.3
+  },
+  "Vehicle to handheld (low VHF)": {
+   "pairs_median300": 1.0,
+   "burn_ge50_pct": 100.0,
+   "reach_p90_km": 4.3
+  },
+  "Handheld to garrison base station (assumed)": {
+   "pairs_median300": 0.75,
+   "burn_ge50_pct": 60.4,
+   "reach_p90_km": 11.3
+  },
+  "Wainwright fire base to portables (169 MHz)": {
+   "pairs_median300": 0.75,
+   "burn_ge50_pct": 74.6,
+   "reach_p90_km": 12.5
+  },
+  "Phone, Rogers (700 MHz)": {
+   "pairs_median300": 0.87,
+   "burn_ge50_pct": 79.0,
+   "reach_p90_km": 12.9
+  },
+  "Phone, TELUS (700 MHz)": {
+   "pairs_median300": 0.32,
+   "burn_ge50_pct": 38.4,
+   "reach_p90_km": 13.1
+  }
+ },
+ "Fire-time air + active fire (+6 dB inside burn)": {
+  "Handheld to handheld (low VHF)": {
+   "pairs_median300": 1.0,
+   "burn_ge50_pct": 16.7,
+   "reach_p90_km": 1.3
+  },
+  "Vehicle to handheld (low VHF)": {
+   "pairs_median300": 1.0,
+   "burn_ge50_pct": 90.4,
+   "reach_p90_km": 4.3
+  },
+  "Handheld to garrison base station (assumed)": {
+   "pairs_median300": 0.49,
+   "burn_ge50_pct": 27.1,
+   "reach_p90_km": 11.4
+  },
+  "Wainwright fire base to portables (169 MHz)": {
+   "pairs_median300": 0.55,
+   "burn_ge50_pct": 43.2,
+   "reach_p90_km": 12.6
+  },
+  "Phone, Rogers (700 MHz)": {
+   "pairs_median300": 0.73,
+   "burn_ge50_pct": 62.4,
+   "reach_p90_km": 12.9
+  },
+  "Phone, TELUS (700 MHz)": {
+   "pairs_median300": 0.19,
+   "burn_ge50_pct": 14.3,
+   "reach_p90_km": 13.1
+  }
+ },
+ "Morning air (inversion, k = 4, for comparison)": {
+  "Handheld to handheld (low VHF)": {
+   "pairs_median300": 1.0,
+   "burn_ge50_pct": 30.8,
+   "reach_p90_km": 1.3
+  },
+  "Vehicle to handheld (low VHF)": {
+   "pairs_median300": 1.0,
+   "burn_ge50_pct": 100.0,
+   "reach_p90_km": 4.3
+  },
+  "Handheld to garrison base station (assumed)": {
+   "pairs_median300": 0.75,
+   "burn_ge50_pct": 61.4,
+   "reach_p90_km": 11.3
+  },
+  "Wainwright fire base to portables (169 MHz)": {
+   "pairs_median300": 0.76,
+   "burn_ge50_pct": 75.4,
+   "reach_p90_km": 12.6
+  },
+  "Phone, Rogers (700 MHz)": {
+   "pairs_median300": 0.87,
+   "burn_ge50_pct": 79.7,
+   "reach_p90_km": 12.9
+  },
+  "Phone, TELUS (700 MHz)": {
+   "pairs_median300": 0.36,
+   "burn_ge50_pct": 42.1,
+   "reach_p90_km": 13.1
+  }
+ }
+}

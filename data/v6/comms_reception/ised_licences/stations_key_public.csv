@@ -1,0 +1,28 @@
+category,name,licensee,dist_km,lat,lon,freqs_mhz,mode
+Base contractor radio,CFB Wainwright,Falcon Security Co.,7.0,52.8311,-110.8831,464.6375,digital
+Fire/emergency,Wainwright town office,Town of Wainwright Fire Dept & Public Works,7.6,52.8331,-110.86,169.38;170.685,analog
+Fire/emergency,Wainwright reservoir site,Town of Wainwright Fire Dept & Public Works,9.2,52.8458,-110.8467,169.38;170.685;406.35;411.4;416.4;452.2125,analog+digital
+Fire/emergency,Wainwright NW-1-45-8W4,Town of Wainwright Fire Dept & Public Works,13.4,52.8578,-111.0361,411.4;416.4,digital
+Fire/emergency,Wainwright 1235 1st Ave,Highway 12 Regional Emergency Communications Group,7.9,52.8383,-110.8744,166.2;169.455,digital
+Fire/emergency,Nose Hill IPF tower,Highway 12 Regional Emergency Communications Group,70.1,52.1561,-111.1386,166.2;169.455,digital
+EMS,Wainwright,Alberta Health Services,8.3,52.8409,-110.8659,410.0125;415.0125,digital
+Municipal,MD of Wainwright (HCPs),M.D. of Wainwright No. 61,8.6,52.8429,-110.8586,149.335;150.5;156.855;162.21;169.245;172.275,analog
+Municipal,MD of Wainwright Edgerton,M.D. of Wainwright No. 61,34.1,52.8717,-110.4217,169.245;172.275,analog
+Fire/emergency,Irma fire hall,Village of Irma,27.2,52.9122,-111.2297,451.1625;452.2125;456.1625;457.2125;463.075;468.075,analog
+Fire/emergency,Edgerton fire hall,Village of Edgerton,29.6,52.7594,-110.4614,451.1625;453.9625;456.1625,analog
+Fire/emergency,Hardisty,Flagstaff Regional Emergency Services Society,29.6,52.6706,-111.3089,168.345;169.2;169.515;169.89;143.97,analog+digital
+Municipal,Hughenden,M.D. of Provost No. 52,29.3,52.5089,-110.9661,158.79;159.33;452.2125;457.2125,analog
+Municipal,Amisk west repeater,M.D. of Provost No. 52,31.9,52.4939,-111.0333,152.27;156.63;163.77;165.09;166.38;168.195,analog
+Weatheradio,Flagstaff,Environment Canada,48.8,52.5378,-111.5144,162.400,analog broadcast
+Aviation,Wainwright municipal airport,Town of Wainwright,4.0,52.8,-110.8678,122.8,analog
+Aviation navaid,Wainwright navaid,NAV CANADA,24.0,52.9814,-110.8336,1116;1179,navaid
+Aviation,Hardisty airport,Town of Hardisty,35.2,52.65,-111.3844,123.2,analog
+Cell,WAINWRIGHT BASE,Rogers/Fido,8.5,52.706,-110.8311,600-3600 MHz LTE/5G (104 m),cellular
+Cell,WAINWRIGHT II,Rogers/Fido,7.6,52.8346,-110.8675,LTE/5G,cellular
+Cell,922 3 Ave,TELUS,7.8,52.8351,-110.861,LTE/5G (61 m),cellular
+Cell,SW 17-45-6-W4,TELUS,12.5,52.8777,-110.8486,LTE/5G (91 m),cellular
+Cell,SE 12-45-8-W4 / Betty Lake,TELUS + Rogers,12.9,52.859,-111.0217,LTE/5G (105 m),cellular
+Cell,WAINWRIGHT,Rogers/Fido,13.1,52.8833,-110.8486,LTE/5G (91 m),cellular
+Cell,NW 16-42-6-W4,TELUS,17.5,52.62,-110.8187,LTE/5G (105 m),cellular
+Cell,Wainwright 14 St,Xplore,11.6,52.8675,-110.8428,5G fixed wireless,cellular
+Cell,NE 32-43-4-W4,TELUS,24.3,52.7553,-110.5408,LTE (37-45 m),cellular

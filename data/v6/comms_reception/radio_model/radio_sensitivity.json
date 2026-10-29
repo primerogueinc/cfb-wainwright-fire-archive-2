@@ -1,0 +1,638 @@
+{
+ "hh_hh": {
+  "base": {
+   "MAPL": 140,
+   "burn": {
+    "likely": 11.6,
+    "probable": 19.2,
+    "marginal": 42.5,
+    "unlikely": 26.7
+   },
+   "reach_km_p50_p90_of_ok": [
+    0.9,
+    1.3
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.03,
+     "median300": 0.03
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.05,
+     "median300": 0.05
+    }
+   }
+  },
+  "M-6dB": {
+   "MAPL": 134,
+   "burn": {
+    "likely": 7.1,
+    "probable": 9.7,
+    "marginal": 27.9,
+    "unlikely": 55.3
+   },
+   "reach_km_p50_p90_of_ok": [
+    0.6,
+    0.9
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.0,
+     "median300": 0.0
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.01,
+     "median300": 0.01
+    }
+   }
+  },
+  "M+6dB": {
+   "MAPL": 146,
+   "burn": {
+    "likely": 20.3,
+    "probable": 32.2,
+    "marginal": 40.9,
+    "unlikely": 6.6
+   },
+   "reach_km_p50_p90_of_ok": [
+    1.3,
+    1.9
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.12,
+     "median300": 0.12
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.19,
+     "median300": 0.19
+    }
+   }
+  },
+  "VHF-high 150 MHz": {
+   "MAPL": 140,
+   "burn": {
+    "likely": 10.0,
+    "probable": 12.9,
+    "marginal": 30.6,
+    "unlikely": 46.5
+   },
+   "reach_km_p50_p90_of_ok": [
+    0.8,
+    1.2
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.0,
+     "median300": 0.0
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.01,
+     "median300": 0.01
+    }
+   }
+  },
+  "UHF 400 MHz": {
+   "MAPL": 140,
+   "burn": {
+    "likely": 8.5,
+    "probable": 7.9,
+    "marginal": 20.5,
+    "unlikely": 63.1
+   },
+   "reach_km_p50_p90_of_ok": [
+    0.7,
+    1.1
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.0,
+     "median300": 0.0
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.0,
+     "median300": 0.0
+    }
+   }
+  }
+ },
+ "veh_hh": {
+  "base": {
+   "MAPL": 155,
+   "burn": {
+    "likely": 76.1,
+    "probable": 23.9,
+    "marginal": 0.0,
+    "unlikely": 0.0
+   },
+   "reach_km_p50_p90_of_ok": [
+    3.0,
+    4.3
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.78,
+     "median300": 0.77
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.86,
+     "median300": 0.86
+    }
+   }
+  },
+  "M-6dB": {
+   "MAPL": 149,
+   "burn": {
+    "likely": 48.5,
+    "probable": 41.9,
+    "marginal": 9.5,
+    "unlikely": 0.0
+   },
+   "reach_km_p50_p90_of_ok": [
+    2.0,
+    2.9
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.51,
+     "median300": 0.5
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.63,
+     "median300": 0.63
+    }
+   }
+  },
+  "M+6dB": {
+   "MAPL": 161,
+   "burn": {
+    "likely": 96.8,
+    "probable": 3.2,
+    "marginal": 0.0,
+    "unlikely": 0.0
+   },
+   "reach_km_p50_p90_of_ok": [
+    4.2,
+    5.8
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.94,
+     "median300": 0.93
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.97,
+     "median300": 0.97
+    }
+   }
+  }
+ },
+ "veh_veh": {
+  "base": {
+   "MAPL": 160,
+   "burn": {
+    "likely": 100.0,
+    "probable": 0.0,
+    "marginal": 0.0,
+    "unlikely": 0.0
+   },
+   "reach_km_p50_p90_of_ok": [
+    5.7,
+    7.8
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.99,
+     "median300": 0.98
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.99,
+     "median300": 0.99
+    }
+   }
+  },
+  "M-6dB": {
+   "MAPL": 154,
+   "burn": {
+    "likely": 94.3,
+    "probable": 5.7,
+    "marginal": 0.0,
+    "unlikely": 0.0
+   },
+   "reach_km_p50_p90_of_ok": [
+    4.0,
+    5.6
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 0.92,
+     "median300": 0.92
+    },
+    "South lakes edge (inside burn)": {
+     "point": 0.96,
+     "median300": 0.96
+    }
+   }
+  },
+  "M+6dB": {
+   "MAPL": 166,
+   "burn": {
+    "likely": 100.0,
+    "probable": 0.0,
+    "marginal": 0.0,
+    "unlikely": 0.0
+   },
+   "reach_km_p50_p90_of_ok": [
+    8.1,
+    11.0
+   ],
+   "points": {
+    "Pairs range (best guess)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 2": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "Range 15": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "West basin (inside burn)": {
+     "point": 1.0,
+     "median300": 1.0
+    },
+    "South lakes edge (inside burn)": {
+     "point": 1.0,
+     "median300": 1.0
+    }
+   }
+  }
+ },
+ "hub_20m": {
+  "MAPL": 148,
+  "burn": {
+   "likely": 3.5,
+   "probable": 57.0,
+   "marginal": 39.5,
+   "unlikely": 0.0
+  },
+  "reach_km_p50_p90_of_ok": [
+   7.5,
+   11.3
+  ],
+  "points": {
+   "Pairs range (best guess)": {
+    "point": 0.65,
+    "median300": 0.75
+   },
+   "Range 2": {
+    "point": 0.83,
+    "median300": 0.79
+   },
+   "Range 15": {
+    "point": 0.76,
+    "median300": 0.75
+   },
+   "West basin (inside burn)": {
+    "point": 0.39,
+    "median300": 0.35
+   },
+   "South lakes edge (inside burn)": {
+    "point": 0.35,
+    "median300": 0.35
+   }
+  }
+ },
+ "hub_10m": {
+  "MAPL": 148,
+  "burn": {
+   "likely": 0.0,
+   "probable": 25.0,
+   "marginal": 58.6,
+   "unlikely": 16.5
+  },
+  "reach_km_p50_p90_of_ok": [
+   7.4,
+   11.0
+  ],
+  "points": {
+   "Pairs range (best guess)": {
+    "point": 0.35,
+    "median300": 0.42
+   },
+   "Range 2": {
+    "point": 0.54,
+    "median300": 0.48
+   },
+   "Range 15": {
+    "point": 0.43,
+    "median300": 0.43
+   },
+   "West basin (inside burn)": {
+    "point": 0.14,
+    "median300": 0.12
+   },
+   "South lakes edge (inside burn)": {
+    "point": 0.12,
+    "median300": 0.12
+   }
+  }
+ },
+ "hub_40m": {
+  "MAPL": 148,
+  "burn": {
+   "likely": 38.7,
+   "probable": 58.2,
+   "marginal": 3.1,
+   "unlikely": 0.0
+  },
+  "reach_km_p50_p90_of_ok": [
+   8.1,
+   12.2
+  ],
+  "points": {
+   "Pairs range (best guess)": {
+    "point": 0.89,
+    "median300": 0.95
+   },
+   "Range 2": {
+    "point": 0.97,
+    "median300": 0.96
+   },
+   "Range 15": {
+    "point": 0.95,
+    "median300": 0.95
+   },
+   "West basin (inside burn)": {
+    "point": 0.72,
+    "median300": 0.69
+   },
+   "South lakes edge (inside burn)": {
+    "point": 0.69,
+    "median300": 0.68
+   }
+  }
+ },
+ "hub_2km_closer": {
+  "MAPL": 148,
+  "burn": {
+   "likely": 31.3,
+   "probable": 60.8,
+   "marginal": 7.9,
+   "unlikely": 0.0
+  },
+  "reach_km_p50_p90_of_ok": [
+   6.8,
+   10.7
+  ],
+  "points": {
+   "Pairs range (best guess)": {
+    "point": 0.92,
+    "median300": 0.93
+   },
+   "Range 2": {
+    "point": 0.96,
+    "median300": 0.95
+   },
+   "Range 15": {
+    "point": 0.93,
+    "median300": 0.93
+   },
+   "West basin (inside burn)": {
+    "point": 0.71,
+    "median300": 0.65
+   },
+   "South lakes edge (inside burn)": {
+    "point": 0.59,
+    "median300": 0.59
+   }
+  }
+ },
+ "hub_2km_farther": {
+  "MAPL": 148,
+  "burn": {
+   "likely": 0.0,
+   "probable": 30.7,
+   "marginal": 65.6,
+   "unlikely": 3.6
+  },
+  "reach_km_p50_p90_of_ok": [
+   8.1,
+   11.7
+  ],
+  "points": {
+   "Pairs range (best guess)": {
+    "point": 0.38,
+    "median300": 0.5
+   },
+   "Range 2": {
+    "point": 0.59,
+    "median300": 0.55
+   },
+   "Range 15": {
+    "point": 0.51,
+    "median300": 0.5
+   },
+   "West basin (inside burn)": {
+    "point": 0.16,
+    "median300": 0.16
+   },
+   "South lakes edge (inside burn)": {
+    "point": 0.19,
+    "median300": 0.18
+   }
+  }
+ },
+ "town_fire_169": {
+  "MAPL": 157,
+  "burn": {
+   "likely": 22.9,
+   "probable": 51.8,
+   "marginal": 24.7,
+   "unlikely": 0.5
+  },
+  "reach_km_p50_p90_of_ok": [
+   8.9,
+   12.5
+  ],
+  "points": {
+   "Pairs range (best guess)": {
+    "point": 0.7,
+    "median300": 0.75
+   },
+   "Range 2": {
+    "point": 0.86,
+    "median300": 0.81
+   },
+   "Range 15": {
+    "point": 0.74,
+    "median300": 0.75
+   },
+   "West basin (inside burn)": {
+    "point": 0.56,
+    "median300": 0.47
+   },
+   "South lakes edge (inside burn)": {
+    "point": 0.45,
+    "median300": 0.47
+   }
+  }
+ },
+ "town_fire_169_15m": {
+  "MAPL": 157,
+  "burn": {
+   "likely": 0.1,
+   "probable": 34.7,
+   "marginal": 56.9,
+   "unlikely": 8.4
+  },
+  "reach_km_p50_p90_of_ok": [
+   8.4,
+   12.5
+  ],
+  "points": {
+   "Pairs range (best guess)": {
+    "point": 0.34,
+    "median300": 0.4
+   },
+   "Range 2": {
+    "point": 0.57,
+    "median300": 0.48
+   },
+   "Range 15": {
+    "point": 0.38,
+    "median300": 0.4
+   },
+   "West basin (inside burn)": {
+    "point": 0.23,
+    "median300": 0.17
+   },
+   "South lakes edge (inside burn)": {
+    "point": 0.16,
+    "median300": 0.17
+   }
+  }
+ }
+}

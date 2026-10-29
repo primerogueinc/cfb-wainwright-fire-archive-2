@@ -1,0 +1,210 @@
+{
+ "Pairs range (best guess)": {
+  "Rogers": {
+   "loss_dB": 139.4,
+   "P140": 0.53,
+   "P135": 0.29,
+   "P145": 0.76
+  },
+  "TELUS": {
+   "loss_dB": 144.7,
+   "P140": 0.28,
+   "P135": 0.11,
+   "P145": 0.52
+  },
+  "Any network": {
+   "loss_dB": 139.4,
+   "P140": 0.53,
+   "P135": 0.29,
+   "P145": 0.76
+  }
+ },
+ "Range 15": {
+  "Rogers": {
+   "loss_dB": 132.3,
+   "P140": 0.83,
+   "P135": 0.63,
+   "P145": 0.94
+  },
+  "TELUS": {
+   "loss_dB": 147.6,
+   "P140": 0.17,
+   "P135": 0.06,
+   "P145": 0.37
+  },
+  "Any network": {
+   "loss_dB": 132.3,
+   "P140": 0.83,
+   "P135": 0.63,
+   "P145": 0.94
+  }
+ },
+ "Range 2": {
+  "Rogers": {
+   "loss_dB": 127.5,
+   "P140": 0.94,
+   "P135": 0.83,
+   "P145": 0.99
+  },
+  "TELUS": {
+   "loss_dB": 137.1,
+   "P140": 0.64,
+   "P135": 0.4,
+   "P145": 0.84
+  },
+  "Any network": {
+   "loss_dB": 127.5,
+   "P140": 0.94,
+   "P135": 0.83,
+   "P145": 0.99
+  }
+ },
+ "Road head": {
+  "Rogers": {
+   "loss_dB": 138.7,
+   "P140": 0.56,
+   "P135": 0.32,
+   "P145": 0.78
+  },
+  "TELUS": {
+   "loss_dB": 146.8,
+   "P140": 0.2,
+   "P135": 0.07,
+   "P145": 0.41
+  },
+  "Any network": {
+   "loss_dB": 138.7,
+   "P140": 0.56,
+   "P135": 0.32,
+   "P145": 0.78
+  }
+ },
+ "per_tower_at_pairs_range": {
+  "Rogers|WAINWRIGHT BASE": 139.4,
+  "Rogers|WAINWRIGHT II": 150.9,
+  "Rogers|WAINWRIGHT": 146.3,
+  "Rogers|BETTY LAKE": 150.7,
+  "TELUS|922 3 AV": 148.6,
+  "TELUS|SW 17-45-6-W4": 144.7,
+  "TELUS|SE 12-45-8-W4": 150.5,
+  "TELUS|NW 16-42-6-W4": 148.2,
+  "TELUS|NE 32-43-4-W4": 168.5
+ },
+ "burn_area_classes_%": {
+  "Rogers": {
+   "likely(>=90%)": 48.8,
+   "probable(50-90%)": 30.7,
+   "marginal(10-50%)": 14.4,
+   "unlikely(<10%)": 6.1
+  },
+  "TELUS": {
+   "likely(>=90%)": 4.2,
+   "probable(50-90%)": 36.1,
+   "marginal(10-50%)": 39.2,
+   "unlikely(<10%)": 20.5
+  },
+  "Any network": {
+   "likely(>=90%)": 49.5,
+   "probable(50-90%)": 30.8,
+   "marginal(10-50%)": 14.4,
+   "unlikely(<10%)": 5.3
+  }
+ },
+ "grid_classes_%": {
+  "Rogers": {
+   "likely(>=90%)": 67.0,
+   "probable(50-90%)": 25.5,
+   "marginal(10-50%)": 6.9,
+   "unlikely(<10%)": 0.5
+  },
+  "TELUS": {
+   "likely(>=90%)": 38.9,
+   "probable(50-90%)": 37.8,
+   "marginal(10-50%)": 20.3,
+   "unlikely(<10%)": 3.0
+  },
+  "Any network": {
+   "likely(>=90%)": 69.0,
+   "probable(50-90%)": 24.2,
+   "marginal(10-50%)": 6.5,
+   "unlikely(<10%)": 0.4
+  }
+ },
+ "wigle_validation_TELUS_P140": [
+  [
+   "TELUS",
+   "GSM",
+   0.96
+  ],
+  [
+   "TELUS",
+   "LTE",
+   0.86
+  ],
+  [
+   "TELUS",
+   "GSM",
+   0.51
+  ],
+  [
+   "TELUS",
+   "LTE",
+   0.47
+  ],
+  [
+   "TELUS",
+   "GSM",
+   0.47
+  ],
+  [
+   "TELUS",
+   "GSM",
+   0.96
+  ],
+  [
+   "TELUS",
+   "GSM",
+   0.81
+  ],
+  [
+   "Bell",
+   "GSM",
+   0.71
+  ],
+  [
+   "TELUS",
+   "LTE",
+   0.97
+  ],
+  [
+   "TELUS",
+   "WCDMA",
+   0.5
+  ],
+  [
+   "TELUS",
+   "GSM",
+   1.0
+  ],
+  [
+   "TELUS",
+   "GSM",
+   0.66
+  ],
+  [
+   "TELUS",
+   "LTE",
+   0.9
+  ],
+  [
+   "TELUS",
+   "GSM",
+   1.0
+  ],
+  [
+   "TELUS",
+   "LTE",
+   0.94
+  ]
+ ]
+}
